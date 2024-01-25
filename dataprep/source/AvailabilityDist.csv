@@ -1,0 +1,16 @@
+varname,formula,variance,dist,link,varlabel
+cat01,1,0,binary,identity,Administration
+cat02,1,0,binary,identity,Demographics
+cat03,0.9,0.09,binary,identity,Medical History
+cat04,0.8,0.16,binary,identity,Family Disease History
+cat05,0.65,0.2275,binary,identity,Service Utilization
+cat06,0.7,0.21,binary,identity,Hospital Data
+cat07,0.9,0.09,binary,identity,Survey Data
+cat08,0.5,0.25,binary,identity,Linkage Data
+cat09,0.35,0.2275,binary,identity,Imaging
+cat10,0.25,0.1875,binary,identity,Genomic
+cat11,0.8,0.16,binary,identity,OtherA
+cat12,0.7,0.21,binary,identity,OtherB
+cat13,0.6,0.24,binary,identity,OtherC
+cat14,0.55,0.2475,binary,identity,OtherD
+cat15,0.55,0.2475,binary,identity,OtherE

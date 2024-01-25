@@ -1,0 +1,100 @@
+---
+title: 'DataRepExp: a R shiny Dashboard that makes Data FAIR for Data Repositories'
+authors:
+- name: Rory Chen
+  orcid: "0000-0002-2094-2682"
+  affiliation: 1
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+  md_doucument: default
+  github_document: default
+affiliations:
+- name: CHeBA, UNSW
+  index: 1
+bibliography:
+- packages.bib
+- references.bib
+csl: "bmj-open.csl"
+---
+
+```{r setup, include=FALSE}
+# LIBRARY######################################################################################
+library(shiny) # RShiny
+library(shinydashboard) # Create a Dashboard
+library(shinyWidgets) # Shiny Widgets
+library(shinyjs)
+
+# data manipulation
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+library(forcats)
+library(useful)
+library(magrittr) # for piping+
+library(purrr)
+
+# outputs
+# data visualisation
+library(ggplot2)
+library(plotly) # interactive plot
+library(scales)
+
+library(DT) # interactive table
+library(htmltools) # HTML generation and output
+library(fontawesome) # icons
+
+
+knitr::write_bib(file = 'packages.bib')
+```
+## Summary
+Our Data Repository Explorer, DataRepExp, is an interactive data visualisation tool initially developed for a discipline-specific data-sharing platform - Dementias Platform Australia (DPAU) [@DPAU].
+
+The application displays standardised metadata across multiple studies including data availability by categories (such as demographics, medical history, imaging data and genomic data) to allow high-level comparison. It enables users to explore and visualise data from participants that match certain criteria. In addition, it provides features to export tables and aggregated results for data access application purposes.
+
+While the demo application is discipline-specific, it can be populated to other data repositories in various disciplines. 
+
+### Statement of need
+Data repositories have become increasingly important in recent years as more emphasis has been placed on open science practices and data sharing. By making data publicly available through repositories, researchers can ensure data persistence and support data preservation, as well as facilitate the reuse of their data, thereby increasing the potential for new scientific discoveries. However, challenges exist for data findability, accessibility, interoperability, and reusability (FAIR) [@wilkinson2016fair].
+
+Even though most data repositories have adopted various metadata schemas to describe the dataset [@contaxis2022ten], it is increasingly a challenge for researchers to find relevant data that meet research interests or needs [@10.1371/journal.pcbi.1006038]. For multi-study research, applying to access different datasets usually comes with variable and complicated data-sharing requirements and workflows, extensive administrative workloads and waiting periods. Upon approval, substantial efforts of data harmonization are usually required due to inconsistent data structures and labelling conventions, and harmonised dataset are hardly reused.
+
+Designed to enable easier access to research data hosted on data repositories, DPAU [@DPAU] seeks to address these challenges. The application includes rich metadata and a set of commonly used variables [@bauermeister2023evaluating], identified as being of broad interest to dementia research, harmonised using the C-Surv data model[@bauermeister2023ready], which has been developed by Dementias Platform UK (DPUK) [@bauermeister2020dementias], and adopted by Alzheimer’s Disease Data Initiative (ADDI) [@ADDI] and DPAU [@DPAU]. Researchers can identify data from participants that match certain criteria, using filters at study and/or participant levels, then explore and conduct preliminary analysis on the filtered dataset. It allows users to export reports and  aggregated results. The exported reports can then be used when submit One centralised data access application form for accessing data from multiple studies through the DPAU Data Portal [@DPAUportal]. 
+
+For demonstration purposes, DataRepExp used a list of generalised variables. The application can be modified to other discipline-specific metadata schema and common variables for the various needs of different data repositories.
+
+# Methods
+DataRepExp was written using R [@R-base] and JavaScript using the following libraries:
+
+-  Shiny: shiny [@R-shiny], shinydashboard [@R-shinydashboard], shinyWidgets [@R-shinyWidgets], shinyjs [@R-shinyjs].
+-  Data manipulation: dplyr [@R-dplyr], tidyr [@R-tidyr], tidyverse [@R-tidyverse], forcats [@R-forcats], useful [@R-useful], magrittr [@R-magrittr], purrr [@R-purrr].
+-  Data Report and Visualisation: ggplot2 [@R-ggplot2], plotly [@R-plotly], scales [@R-scales], DT [@R-DT], htmltools [@R-htmltools], fontawesome [@R-fontawesome].
+
+## Overview
+The application layout features a side menu, through which the users can navigate through tabs, and the main view which displays the content of the selected tab.
+
+-  First tab – Overview (statement)
+-  Second tab – Summary Tables (metadata for high-level comparison)
+-  Third tab – Filters (study level and participant level) and Filter Reports (filters selected and identified studies)
+-  Fourth tab – Visualisation (basic plots, organised by different domains)
+-  Fifth tab – Preliminary Analysis (allow users to select variables of interest)
+
+Application features include: 
+
+-  Simulation: For demonstration purposes, we generate simulated data. Scripts and reference documents used to generate the data can be found in the GitHub repository.
+-  Modularisation: DataRepExp was built in Shiny modules. Modularity makes the app easy to test, maintain, and deploy.
+-  Interactive: DataRepExp provides an interactive interface that allows users to engage with the data and output.
+
+## Acknowledgements
+This application was previously inspired by the visualisation tool developed by Dementias Platform UK (DPUK) using PowerBI, then developed in R for the Dementias Platform Australia (DPAU).
+
+## Funding 
+This work is supported by a grant from the National Institute of Health (NIH). [Grant number]
+
+## Availability and Community Guidelines
+The application and source code is available at the GitHub repository[link]. Users and contributors are welcome to contribute, request features, and report bugs through the GitHub repository.
+
+
+## References
+

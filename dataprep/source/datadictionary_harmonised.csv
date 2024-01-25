@@ -1,0 +1,31 @@
+varname,varlabel,vartype,varvalue
+ID ,ID,character,NA
+ETHNICBACK,Ethnic Background,factor,"levels = c(1,2,3,4,5,6,7), labels = c('Caucasian', 'Asian', 'African','Hispanic','Indigenous','Mixed','Other')"
+SEX,Sex,factor,"levels = c(1,2,3), labels = c('Male', 'Female', 'Other')"
+EDUHIGHS,High School Educated,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+MARISTAT,Married/De-facto,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+AGEATASS,Age at Assessment,numeric,NA
+DECEASED,Deceased,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+YOD,Year of Death,integer,NA
+SMOKESTAT,Smoking Status,factor,"levels = c(1,2,3), labels = c('Never', 'Ex', 'Current')"
+ALCSTAT,Alcohol Use Status,factor,"levels = c(1,2,3), labels = c('Never', 'Ex', 'Current')"
+BMI,BMI,numeric,NA
+SCALE1,Scale 1,numeric,NA
+SCALE2,Scale 2,numeric,NA
+SCALE3,Scale 3,numeric,NA
+SCALE4,Scale 4,numeric,NA
+DIA1,Diseases Diagnosis 1,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+DIA2,Diseases Diagnosis 2,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+DIA3,Diseases Diagnosis 3,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+DIA4,Diseases Diagnosis 4,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+HOSOUP,Hospital Outpatient,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+HOSINP,Hospital Inpatient,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+GP,GP,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+FAMDIA1,Family History of Diagnosis 1,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+FAMDIA2,Family History of Diagnosis 2,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+FAMDIA3,Family History of Diagnosis 3,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+MRICOLL,MRI Collected,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+IMGCOLL1,Imaging 1 Collected,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+IMGCOLL2,Imaging 2 Collected,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+GENO1,Geno type 1,factor,"levels = c(1,2,3,4), labels = c('TypeA', 'TypeB', 'TypeC','TypeD')"
+GENO2,Geno type 2,factor,"levels = c(1,2,3,4,5,6,7,8,9), labels = c('G1', 'G2', 'G3', 'G4', 'G5', 'G6','G7', 'G8', 'G9')"
