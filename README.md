@@ -10,7 +10,7 @@ Simulated data are used for demonstration purposes.
 
 The demo app can be found here: https://rorychenxy.shinyapps.io/DataRepExp/
 
-Paper: [paper.md](/paper/paper.md)
+Paper: [paper.md](/paper)
 
 Development Notes and how to make modifications for your purposes: [Notes](/notes)
 
