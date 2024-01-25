@@ -1,9 +1,20 @@
 ---
 title: 'DataRepExp: a R shiny Dashboard that makes Data FAIR for Data Repositories'
 authors:
-- name: Rory Chen
+- name: Rory Chen^1
+  email: xinyue.chen1@unsw.edu.au
   orcid: "0000-0002-2094-2682"
-  affiliation: 1
+- name: Vibeke S. Catts^1
+- name: Perminder S. Sachdev^1
+
+address:
+  - code: 1
+    address: Centre for Healthy Brain Ageing, Discipline of Psychiatry & Mental Health, School of Clinical Medicine, University of New South Wales, Sydney, Australia
+  - code: 2
+    address: Oxford 
+
+  
+  
 date: "`r Sys.Date()`"
 output:
   word_document: default
