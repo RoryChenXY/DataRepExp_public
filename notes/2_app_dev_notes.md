@@ -3,7 +3,7 @@
 ## Basic App
 
 1. Create the file 'app.R' that includes the basic structure of the DataRepExp app (5 tabs)
-2. Created a copy in '\archive\basicapp' folder for future testing purpose (no data contained)
+2. Create a copy in '\archive\basicapp' folder for future testing purposes (no data contained)
 
 ## Tab 1 Overview
 1. Create '.\R\tab1_contents.R' for Tab 1 - Overview Statement Contents
@@ -15,35 +15,35 @@
 3. Update 'app.R' to source tab2 contents
     - Load data
     - Load Libraries
-    - First just include the summary text (Number of studies and participants)
+    - First, just include the summary text (Number of studies and participants)
     - Add first summary table - study metadata
-    - Add DT options to improve the look the table
+    - Add DT options to improve the look of the table
     - Add second summary table - data availability
     - Add third summary table - harmonised variable availability
-    - Added formatting and notes
+    - Add formatting and notes
     
 
 ## Tab 3 Filters
 
-1. Create '.\R\tab3_filters_module.R' with basic module structure, one filter and results to show the filtered results.
+1. Create '.\R\tab3_filters_module.R' with a basic module structure, one testing filter, and one string to display the filtered results.
 2. Update 'app.R' to utilise the simple module
-3. Update '.\R\tab3_filters_module.R' for study meta data filters
-    - Create self-defined function for inputs with only No/Yes options: my_yn_inputs
+3. Update '.\R\tab3_filters_module.R' for study metadata filters
+    - Create a self-defined function for inputs with only No/Yes options: my_yn_inputs
     - Update module UI for the metadata filter inputs
-    - Applying the metadata filters:
+    - Apply the metadata filters:
       - Self-defined function: my_factor_filter; 
       - purrr::reduce2 to iterate over each filter;
-      - Applying other filters
+      - Apply other filters
     - Add a reset button for study metadata filters with shinyjs
     
 4. Update '.\R\tab3_filters_module.R' for Participant filters   
     - Update the module UI - tabPanel for Participant Filters tab
-    - Create self-defined function for inputs with only No/Yes/Missing options: my_ynm_inputs
-    - Adding the actual Participant Filters
-    - Applying the Participant filters
+    - Create a self-defined function for inputs with only No/Yes/Missing options: my_ynm_inputs
+    - Add the actual Participant Filters
+    - Apply the Participant filters
 
 5. Add a button to clear all filters
-6. Applying filters from both tab 
+6. Apply filters from both tabs. 
 7. Update for Filter Report tab
     > Update the module UI - tabPanel for Filters Report tab
     > Filtered Study metadata table
@@ -55,9 +55,9 @@
 
 1. Update '.\R\tab3_filters_module.R' to return the reactive filtered results
 2. Update 'app.R' to pass the filtered results to the tab 4 module
-3. Create '.\R\tab4_visual_module.R' with basic module structure and UI layout with different sub-tabs.
+3. Create '.\R\tab4_visual_module.R' with a basic module structure and UI layout with different sub-tabs.
 4. Create '.\R\vis_functions.R' for self-defined visualisations
-5. Create plots for each harmonised variables of interests 
+5. Create plots for each harmonised variable of interests 
 
 ## Tab 5 Preliminary Analysis Tab
 
