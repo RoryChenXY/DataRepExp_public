@@ -19,7 +19,7 @@ Development Notes and how to make modifications for your purposes: [Notes](/note
 The application and associated documentation are open source (MIT License), but we ask that you kindly acknowledge our work. 
 
 
-# How to navigate the application
+## How to navigate the application
 
 The side menu allows you to switch between tabs, and the menu icon on the top allows you to collapse and expand the menu.
 ![Side Menu](/www/sidemenu.png)
