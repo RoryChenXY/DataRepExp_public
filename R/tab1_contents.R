@@ -14,10 +14,8 @@ tab1overview <- fluidPage(
       and the menu icon on the top allows you to collapse and expand the menu.'),
   fluidRow(img(src="sidemenu.png", width=300)),
   br(),
-  h3('The Summary Tables Tab includes metadata of studies, 
-      listed in three tables and provides high-level comparison.
-      All tables allow you to search, sort and filter, 
-      and the "CLEAR" button resets the table to its original status.'),
+  h3('The Summary Tables Tab includes metadata of studies, listed in three tables, and provides a high-level comparison. 
+      All tables allow you to search, sort, and filter, and the "CLEAR" button resets the table to its original status.'),
   fluidRow(img(src="Summary.png", width=900)),
   br(),
   h3('The Filters Tab includes filters at both study level and participant level,
