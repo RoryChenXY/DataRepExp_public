@@ -190,7 +190,7 @@ filters_mod_ui <- function(id, df1, df2) {
                 column(3, my_yn_inputs(NS(id, "cat01"), "Administration")),
                 column(3, my_yn_inputs(NS(id, "cat02"), "Demographics")),
                 column(3, my_yn_inputs(NS(id, "cat03"), "Medical History")),
-                column(3, my_yn_inputs(NS(id, "cat04"), "Family Disease History"))
+                column(3, my_yn_inputs(NS(id, "cat04"), "Family History of Diseases"))
               ),
               fluidRow(
                 column(3, my_yn_inputs(NS(id, "cat05"), "Service Utilisation")),
@@ -315,8 +315,8 @@ filters_mod_ui <- function(id, df1, df2) {
                 )
               )
             ),
-            wellPanel( #### Diseases Diagnosis  ############################################
-              h3("Diseases Diagnosis"),
+            wellPanel( #### Disease Diagnoses  ############################################
+              h3("Disease Diagnoses"),
               fluidRow(
                 column(3, my_ynm_inputs(NS(id, "dia1"), "Diagnosis 1")),
                 column(3, my_ynm_inputs(NS(id, "dia2"), "Diagnosis 2")),
@@ -333,7 +333,7 @@ filters_mod_ui <- function(id, df1, df2) {
               )
             ),
             wellPanel( #### Family Diseases History  ############################################
-              h3("Family Diseases History"),
+              h3("Family History of Diseases"),
               fluidRow(
                 column(3, my_ynm_inputs(NS(id, "famdia1"), "Family History of Diagnosis 1")),
                 column(3, my_ynm_inputs(NS(id, "famdia2"), "Family History of Diagnosis 2")),
@@ -376,7 +376,7 @@ filters_mod_ui <- function(id, df1, df2) {
           h4("The studies you have identified include:"),
           fluidRow(DT::dataTableOutput(NS(id, 'testcrs'))),
           wellPanel(fluidRow(DT::dataTableOutput(NS(id, "filtered_study")))),
-          h4("The filters you have selected include:"),
+          h4("The filters you have applied include:"),
           wellPanel(fluidRow(DT::dataTableOutput(NS(id, "filter_sel"))))
         )## End of Filters Report Tab#######################
       )
@@ -489,19 +489,19 @@ filters_mod_server <- function(id, df1, df2, df3) {
       c <- paste(nrow(filtered_all()), "/", nrow(df2)) # Applied both filters - ppt
       d <- paste(length(unique(filtered_all()$STUDY)), "/", nrow(df1)) # Applied both filters - studies
       statement <- paste('<br>','<br>',
-                         "Based on the filters you selected on the Study Filters tab,",
+                         "Based on the filters you applied on the Study Filters sub-tab,",
                          "you have found ", a, "studies.", '<br>','<br>',
-                         "Based on the filters you selected on the Participants Filters tab,",
+                         "Based on the filters you applied on the Participant Filters sub-tab,",
                          "you have found ", b, "participants.", '<br>','<br>',
-                         "Based on the filters you selected on the both tabs,",
+                         "Based on the filters you applied on the both sub-tabs,",
                          "you have found ", c, "participants from", d, 'studies.',
                          sep = " ")
             
       fluidPage(
-        h2('The Filters tab provides filter functions to identify studies and participants that meet your research interests.'),
-        h3('The Study Filters tab includes some common metadata, and data availability by categories.'),
-        h3('The Participant Filters tab includes some harmonised commonly used variables.'),
-        h3('The Filters Report tab provides a report of the filters you have selected, the identified studies, 
+        h2('The Filters Tab provides filter functions to identify studies and participants that meet your research interests.'),
+        h3('The Study Filters sub-tab includes some common metadata, and data availability by categories.'),
+        h3('The Participant Filters sub-tab includes some harmonised commonly used variables.'),
+        h3('The Filters Report sub-tab provides a report of the filters you have selected, the identified studies, 
      and can be downloaded for future reference.'),
         h4(HTML(statement))
       )

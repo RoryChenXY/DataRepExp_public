@@ -10,14 +10,15 @@ quanchoice <- list(
   "Scale 3",
   "Scale 4"
 )
+
 catevchoice <- list(
-  "Demographics"            = list("Ethnic Background", "Sex", "High School Educated", "Married/De-facto", "Deceased"),
-  "Lifestyle"               = list("Smoking Status", "Alcohol Use Status"),
-  "Diseases Diagnosis"      = list("Diseases Diagnosis 1", "Diseases Diagnosis 2", "Diseases Diagnosis 3", "Diseases Diagnosis 4"),
-  "Service Utilization"     = list("Hospital Outpatient", "Hospital Inpatient", "GP"),
-  "Family Diseases History" = list("Family History of Diagnosis 1", "Family History of Diagnosis 2", "Family History of Diagnosis 3"),
-  "Imaging Data"            = list("MRI Collected", "Imaging 1 Collected", "Imaging 2 Collected"),
-  "Genomic Data"            = list("Geno type 1", "Geno type 2")
+  "Demographics"               = list("Ethnic Background", "Sex", "High School Educated", "Married/De-facto", "Deceased"),
+  "Lifestyle"                  = list("Smoking Status", "Alcohol Use Status"),
+  "Disease Diagnoses"          = list("Disease Diagnosis 1", "Disease Diagnosis 2", "Disease Diagnosis 3", "Disease Diagnosis 4"),
+  "Service Utilization"        = list("Hospital Outpatient", "Hospital Inpatient", "GP"),
+  "Family History of Diseases" = list("Family History of Diagnosis 1", "Family History of Diagnosis 2", "Family History of Diagnosis 3"),
+  "Imaging Data"               = list("MRI Collected", "Imaging 1 Collected", "Imaging 2 Collected"),
+  "Genomic Data"               = list("Geno type 1", "Geno type 2")
 )
 
 # colours
@@ -27,7 +28,7 @@ Pastel1Colors <- RColorBrewer::brewer.pal(name = "Pastel1", n = 9)
 paq_mod_ui <- function(id) {
   ns <- NS("id")
   tagList(
-    h2("The Preliminary Analysis tab generates results based on the filters you have selected."),
+    h2("The Preliminary Analysis Tab generates results based on the filters you have applied."),
     h2("Please allow up to a minute for the results to load."),
     fluidPage(
       fluidRow(
@@ -79,7 +80,7 @@ paq_mod_server <- function(id, df3, react_df) {
     # Check the filtered results and selected variables
     output$paq_valid <- renderUI({
       if (nrow(react_df()) == 0) {
-        h2("Base on the filters you selected,
+        h2("Based on the filters you applied,
             no participants were identified, please update your selection.")
       } else {
         if (input$yquan == input$qx1q) {
@@ -88,7 +89,7 @@ paq_mod_server <- function(id, df3, react_df) {
           h2("Please choose a different Categorical X3") # Variable selection validation
         } else {
           h3(paste0(
-            "Base on the filters you selected, you have found ",
+            "Based on the filters you applied, you have found ",
             nrow(react_df()), " participants from ",
             length(unique(react_df()$STUDY)), " study/studies."
           ))

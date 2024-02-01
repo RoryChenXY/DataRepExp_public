@@ -4,8 +4,8 @@ source("./R/vis_functions.R", local = TRUE)
 vis_mod_ui <- function(id) {
   ns <- NS("id")
   tagList(
-    h2("The Visualisation tab generates results
-        based on the filters you have selected."),
+    h2("The Visualisation Tab generates results
+        based on the filters you have applied."),
     fluidPage(
       uiOutput(NS(id, "fvalid")),
       tabsetPanel(
@@ -28,13 +28,13 @@ vis_mod_server <- function(id, df1, react_df) {
     # Check the filtered results
     output$fvalid <- renderUI({
       if (nrow(react_df()) == 0) {
-        h2("Base on the filters you have selected,
+        h2("Base on the filters you have applied,
             no participants were identified, please update your selection.")
       } else {
         a <- react_df()
         df <- a %>% count(SEX, .drop = FALSE, name = "Count")
         fluidPage(
-          h3("Base on the filters you selected,
+          h3("Base on the filters you applied,
               you have found: "),
           fluidRow(
             column(width = 2, HTML(paste(icon("object-ungroup"), "Studies: ", length(unique(a$STUDY))))),
@@ -374,8 +374,8 @@ vis_mod_server <- function(id, df1, react_df) {
       } else {
         fluidPage(
           fluidRow(
-            column(4, h4("Diseases Diagnosis"), plotlyOutput(NS(id, "diaall"))),
-            column(4, h4("Family Diseases History"), plotlyOutput(NS(id, "famdall"))),
+            column(4, h4("Disease Diagnoses"), plotlyOutput(NS(id, "diaall"))),
+            column(4, h4("Family History of Diseases"), plotlyOutput(NS(id, "famdall"))),
             column(4, h4("Service Utilisation"), plotlyOutput(NS(id, "suall")))
           )
         )
