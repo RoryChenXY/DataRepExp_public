@@ -18,6 +18,9 @@ Development Notes and how to make modifications for your purposes: [Notes](/note
 
 The application and associated documentation are open source (MIT License), but we ask that you kindly acknowledge our work. 
 
+The application for DPAU is hosted on AWS, using AWS services including EC2, S3, Application Load Balancer, Auto Scaling, Cognito, Lambda functions, WAF and other security services for high availability, scalability, security and compliance.
+For security reasons, AWS-related code was not included in this repository.
+
 
 ## How to navigate the application
 
