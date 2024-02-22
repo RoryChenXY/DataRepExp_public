@@ -42,10 +42,10 @@ ui <- dashboardPage(
 
 ## Tab Contents####################
 source("./R/tab1_contents.R", local = TRUE)
-source("./R/tab2_layout.R", local = TRUE)
-source("./R/tab2_output.R", local = TRUE)
 
 # Note modules would be load automatically, no source needed
+tab2summary <- fluidPage(summary_mod_ui("sumtables"))
+
 tab3filters <- fluidPage(filters_mod_ui("filterall", df1 = studymeta, df2 = ppt_all_fc))
 
 tab4visua <- fluidPage(vis_mod_ui("Visual"))
@@ -90,7 +90,7 @@ server <- function(input, output, session) {
   })
 
   ## Outputs#####################################################################
-  tab2_output(input, output, session)
+  summary_mod_server("sumtables", df1= studymeta, df3 = VAR_info, df4 = ppt_all)
 
   filters_mod_server("filterall", df1 = studymeta, df2 = ppt_all_fc, df3 = VAR_info)
   
