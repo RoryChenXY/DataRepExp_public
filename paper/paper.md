@@ -49,7 +49,7 @@ bibliography: paper.bib
 
 The Data Repository Explorer, DataRepExp, is an open-source R Shiny application developed to improve the findability, accessibility, interoperability, and reusability (FAIR) [@FAIR] of research data hosted on  a data repository. 
 The application displays standardised metadata across multiple studies including data availability by categories (such as demographics, medical history, imaging data and genomic data) to allow high-level comparison. It enables users to explore and run preliminary analysis from participants that match certain criteria. In addition, it provides features to export reports and aggregated results for data access application purposes.
-The application was initially developed for a discipline-specific data-sharing platform, the Dementias Platform Australia (DPAU) [1]. Envisioning this work could be utilized by other data repositories, this demo application was created using simulated health-related data for demonstrating purposes, can be populated to other data repositories in diverse disciplines.
+The application was initially developed for a discipline-specific data-sharing platform, the Dementias Platform Australia (DPAU) [@DPAU]. Envisioning this work could be utilized by other data repositories, this demo application was created using simulated health-related data for demonstrating purposes, can be populated to other data repositories in diverse disciplines.
 Source Code: https://github.com/RoryChenXY/DataRepExp_public 
 Web Application: https://rorychenxy.shinyapps.io/DataRepExp/ 
 Contact: xinyue.chen1@unsw.edu.au
