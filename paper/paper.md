@@ -41,7 +41,7 @@ affiliations:
  - name: Population Data Science, Swansea University, Swansea, United Kingdom
    index: 5
 date: 23 Feburary 2024
-bibliography: references.bib
+bibliography: paper.bib
 
 ---
 
