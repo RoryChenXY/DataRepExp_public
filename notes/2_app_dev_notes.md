@@ -1,4 +1,4 @@
-# Application Development NOTES
+# Application Development Notes
 
 ## Basic App
 
@@ -10,11 +10,9 @@
 2. Update 'app.R' to source the tab1_contents
 
 ## Tab 2 Summary Tables 
-1. Create '.\R\tab2_layout.R' for Tab 2 Summary Tables Tab UI/layout
-2. Create '.\R\tab2_output.R' for Tab 2 Summary Tables Tab output
-3. Update 'app.R' to source tab2 contents
-    - Load data
-    - Load Libraries
+1. Create '.\R\tab2_summary_module.R' with a basic module structure for Tab 2 Summary Tables  
+2. Update 'app.R' to utilise the module
+3. Update '.\R\tab2_summary_module.R' for contents
     - First, just include the summary text (Number of studies and participants)
     - Add first summary table - study metadata
     - Add DT options to improve the look of the table
