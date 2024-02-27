@@ -47,7 +47,7 @@ To make modification to the applications for your purposes, R programming skill 
 5. The Data Repository Explorer, DataRepExp, is hosted through easy-to-use [shinyapps.io](https://www.shinyapps.io/),  while the DPAU version is hosted on AWS environment using Shiny Server for high availability, scalability, security, and compliance.  The detailed deploy instruction can be found [here](https://shiny.posit.co/r/deploy.html)
 
 ## Acknowledgements
-This application was inspired by the visualization tool developed by Dementias Platform UK([DPUK](https://www.dementiasplatform.uk/)) using PowerBI, then developed for the [DPAU](https://www.dementiasplatform.com.au/) in R-Shiny. We acknowledge the generous sharing of best practices and knowledge from DPUK.
+This application was inspired by the visualization tool developed by Dementias Platform UK([DPUK](https://www.dementiasplatform.uk/)) using PowerBI, then developed for the Dementias Platform Australia ([DPAU](https://www.dementiasplatform.com.au/)) in R-Shiny. We acknowledge the generous sharing of best practices and knowledge from DPUK.
 
 ## Funding
 This work is supported by grants from the National Institute on Aging/ National Institute of Health (NIA/NIH) [1RF1AG057531-01] and the Medical Research Council [MRC/T0333771]. 
