@@ -1,0 +1,52 @@
+.shiny-notification-content-text {
+  font-size: 20px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  overflow-y: auto;
+  width: 250px;
+  background-color: #222d32;
+}
+
+.content-wrapper {
+  margin-left: 250px; /* set the margin to the width of the sidebar */
+  transition: margin .2s;
+}
+
+.content-wrapper .tab-content {
+  padding-top: 15px;
+}
+
+body.sidebar-collapse .content-wrapper {
+  margin-left: 0; /* reset the margin when the sidebar is collapsed */
+}
+
+.sidebar .treeview-menu>li>a,
+.sidebar .treeview-menu>li>a:hover,
+.sidebar .treeview-menu>li>a:focus {
+  padding: 10px 5px 10px 10px;
+  font-weight: 500;
+  color: #a9a9a9;
+  border-left: 0px solid #d2d6de;
+}
+
+.sidebar .treeview-menu>li.active>a,
+.sidebar .treeview-menu>li.active>a:hover,
+.sidebar .treeview-menu>li.active>a:focus,
+.sidebar .treeview-menu>li>a:hover,
+.sidebar .treeview-menu>li>a:focus {
+  background-color: #222d32;
+  color: #fff;
+  border-left: 5px solid #1abc9c;
+  text-decoration: none;
+}
+
+.sidebar .treeview-menu>.menu-open>a,
+.sidebar .treeview-menu>.menu-open>a:hover,
+.sidebar .treeview-menu>.menu-open>a:focus {
+  background-color: #222d32;
+  border-left-color: #1abc9c;
+}

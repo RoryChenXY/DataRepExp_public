@@ -1,0 +1,12 @@
+name: meta_demo
+title: meta_demo
+username: rorychenxy
+account: rorychenxy
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11273974
+bundleId: 8278223
+url: https://rorychenxy.shinyapps.io/meta_demo/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
