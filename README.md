@@ -1,26 +1,15 @@
 # Welcome to DataRepExp
 
-Data Repository Explorer, DataRepExp is an Open-Source R Shiny app developed to improve the findability, accessibility, interoperability, and reusability (FAIR) of research data hosted on a data repository.
+The Data Repository Explorer, DataRepExp, is an open-source R Shiny application developed to improve the findability, accessibility, interoperability, and reusability (FAIR) of research data held in a data repository. 
 
-This application was inspired by the visualization tool developed by [Dementias Platform UK](https://www.dementiasplatform.uk/) using PowerBI. 
-While it was developed for the [Dementias Platform Australia](https://www.dementiasplatform.com.au/), it can be adapted and utilised by other data repositories.
+The application displays standardised metadata across multiple studies including data availability by categories (such as demographics, medical history, imaging data and genomic data) to allow high-level comparison. It enables users to explore and run preliminary analysis from participants that match certain criteria. In addition, it provides features to export reports and aggregated results for data access application purposes. 
 
+This demo application was created using simulated health-related data for demonstration purposes. It can be modified and utilized by other data repositories by adopting the discipline-specific metadata schema and common variables.
 
-With this app, data repositories can display standardized metadata including the availability of data across multiple research studies. It provides an interactive data visualization tool for some commonly used variables in the field, allowing researchers to explore and visualize data from participants that match certain criteria, which are applied using filters at both study and participant levels. 
-
-Simulated data are used for demonstration purposes.
-
-The demo app can be found here: https://rorychenxy.shinyapps.io/DataRepExp/
-
-Paper: [paper.md](/paper)
-
-Development Notes and how to make modifications for your purposes: [Notes](/notes)
-
-The application and associated documentation are open source (MIT License), but we ask that you kindly acknowledge our work. 
-
-The application for DPAU is hosted on AWS, using AWS services including EC2, S3, Application Load Balancer, Auto Scaling, Cognito, Lambda functions, WAF and other security services for high availability, scalability, security and compliance.
-For security reasons, AWS-related code is not included in this repository.
-
+-   Source Code: <https://github.com/RoryChenXY/DataRepExp_public>
+-   Web Application: <https://rorychenxy.shinyapps.io/DataRepExp/>
+-   Contact: [xinyue.chen1\@unsw.edu.au](mailto:%20xinyue.chen1@unsw.edu.au)
+-   Paper: [paper.md](/paper/paper.md)
 
 ## How to navigate the application
 
@@ -47,3 +36,25 @@ The Preliminary Analysis Tab generates results based on the filters you have app
 ![Preliminary Analysi Tab](/www/PA.png)
 
 All plots can be downloaded. They have interactive features such as zoom, select, adjust axis, hover for information, reset, etc.
+
+## Deployment Notes
+
+To make modification to the applications for your purposes, R programming skill is required.
+1. The application requires both study-level metadata, and particicipant-level data, and a variable information data frame that contains all variable information. Deatail Notes and scripts used to generate data is included in the repository: [Data Preparation Notes](/notes/1_dataprep.md). 
+2. DataRepExp was built in Shiny modules. Modularity makes the app easy to test, maintain, and deploy. The features can be easily further expanded with loose coupling module design: [Application Development Notes](/notes/2_app_dev_notes.md).
+3. I have created a copy of this application that was modified to add two more variables just as a demonstration to set up your own variables: [How to add new variables](/notes/3_add_new_var.md).
+4. Considering some repositories may hold highly sensitive data, or individual-level data may not be not available, a metadata-only version DataRepExp has also been developed, and relevant code is included [here](/archive/meta_demo).
+5. The Data Repository Explorer, DataRepExp, is hosted through easy-to-use [shinyapps.io](https://www.shinyapps.io/),  while the DPAU version is hosted on AWS environment using Shiny Server for high availability, scalability, security, and compliance.  The detailed deploy instruction can be found [here](https://shiny.posit.co/r/deploy.html)
+
+## Acknowledgements
+This application was inspired by the visualization tool developed by Dementias Platform UK([DPUK](https://www.dementiasplatform.uk/)) using PowerBI, then developed for the [DPAU](https://www.dementiasplatform.com.au/) in R-Shiny. We acknowledge the generous sharing of best practices and knowledge from DPUK.
+
+## Funding
+This work is supported by grants from the National Institute on Aging/ National Institute of Health (NIA/NIH) [1RF1AG057531-01] and the Medical Research Council [MRC/T0333771]. 
+
+## Availability and Community Guidelines
+The application and associated documentation are open source (MIT License), but we ask that you kindly acknowledge our work. 
+Users and contributors are welcome to contribute, request features, and report bugs through the GitHub repository.
+
+
+
