@@ -51,7 +51,7 @@ The application displays standardised metadata across multiple studies including
 It enables users to explore and run preliminary analysis from participants that match certain criteria.
 In addition, it provides features to export reports and aggregated results for data access application purposes.
 The application was initially developed for a discipline-specific data-sharing platform, the Dementias Platform Australia (DPAU) [@DPAU].
-Envisioning this work could be utilized by other data repositories in diverse disciplines, this demo application was created using simulated health-related data for demonstrating purposes.
+Envisioning this work could be utilized by other data repositories in diverse disciplines, this demo application was created using simulated health-related data for demonstration purposes.
 
 -   Source Code: <https://github.com/RoryChenXY/DataRepExp_public>
 -   Web Application: <https://rorychenxy.shinyapps.io/DataRepExp/>
