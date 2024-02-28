@@ -7,11 +7,11 @@ All changes made in the R files compared to the original version were commented 
 
 1.	Update the data. [Syntax](/archive/addvar/data/dataprep_newvar.R)
 
-  	Added a categorical variable ‘OtherF’ to the study-level metadata.
+  	- Added a categorical variable ‘OtherF’ to the study-level metadata.
 
-  	Added a numeric variable ‘MMSE’ to the participant-level data
+  	- Added a numeric variable ‘MMSE’ to the participant-level data
 
-  	Update relevant Variable Information in the 'VAR_info_new' data frame.
+  	- Update relevant Variable Information in the 'VAR_info_new' data frame.
   	
 
 2.	Tab 1 – No changes
