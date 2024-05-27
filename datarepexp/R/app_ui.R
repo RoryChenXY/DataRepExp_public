@@ -3,14 +3,18 @@
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
 #' @import shiny
+#' @import shinydashboard
 #' @noRd
 app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic
-    fluidPage(
-      h1("datarepexp")
+    shinydashboard::dashboardPage(
+      skin = "black",
+      shinydashboard::dashboardHeader(title = "Data Repository Explorer"),
+      shinydashboard::dashboardSidebar(uiOutput("sidebarpanel")),
+      shinydashboard::dashboardBody(uiOutput("body"))
     )
   )
 }
@@ -21,6 +25,7 @@ app_ui <- function(request) {
 #' resources inside the Shiny application.
 #'
 #' @import shiny
+#' @import shinydashboard
 #' @importFrom golem add_resource_path activate_js favicon bundle_resources
 #' @noRd
 golem_add_external_resources <- function() {
