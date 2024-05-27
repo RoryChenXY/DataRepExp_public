@@ -1,12 +1,9 @@
 Package: datarepexp
-Title: An Amazing Shiny App
+Title: Data Repository Explorer
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "firstname",
-           family = "lastname",
-           role = c("aut", "cre"),
-           email = "your@email.com")
-Description: What the package does (one paragraph).
+Authors@R: person('Rory', 'Chen', email = 'rory.chen.xy@gmail.com', role = c('cre', 'aut'), comment = c(ORCID = "0000-0002-2094-2682"))
+Description: The Data Repository Explorer, is an open-source R Shiny application developed to improve the 
+                     findability, accessibility, interoperability, and reusability (FAIR) of research data held in a data repository.
 License: What license is it under?
 Imports: 
     config (>= 0.3.2),
