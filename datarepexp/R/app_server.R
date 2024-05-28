@@ -37,7 +37,7 @@ app_server <- function(input, output, session) {
       ## Tab1 - Overview Tab#####################################################################
       tabItem(tabName = "ovtab", class = "active", fluidPage(mod_tab1_statement_ui("tab1_statement_1"))),
       ## Tab2 - Summary Tab######################################################################
-      tabItem(tabName = "sumtab", fluidPage(mod_tab2_meta_ui("tab2_meta_1"))),
+      tabItem(tabName = "metatab", fluidPage(mod_tab2_meta_ui("tab2_meta_1"))),
       ## Tab3 - Filters Tab######################################################################
       tabItem(tabName = "filtab", tab3filters),
       ## Tab4 - Visualisation Tab################################################################
@@ -49,6 +49,7 @@ app_server <- function(input, output, session) {
   })
 
   mod_tab1_statement_server("tab1_statement_1")
-  mod_tab2_meta_server("tab2_meta_1")
+
+  mod_tab2_meta_server("tab2_meta_1", metadf = studymeta, infodf = VAR_info)
 
 }
