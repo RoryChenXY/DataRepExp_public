@@ -1,6 +1,6 @@
 #' tab2_meta UI Function
 #'
-#' @description A shiny Module.
+#' @description A shiny Module for the second tab - Metadata.
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
 #'
@@ -9,8 +9,22 @@
 #' @import dplyr
 #' @import DT
 #' @import shiny
-#' @import shinipsum
 #' @importFrom magrittr %>%
+
+# DT table option for Summary Tables Tab
+dtoptions1 <- list(
+  searching = TRUE,
+  scrollX = TRUE,
+  dom = 'Bfrtip',
+  buttons = list('pageLength',
+                 list(
+                   extend = 'colvis',
+                   columns = ":gt(0)"),
+                 'colvisRestore',
+                 'csv',
+                 'print')
+)
+
 mod_tab2_meta_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -50,28 +64,49 @@ mod_tab2_meta_ui <- function(id){
 #' tab2_meta Server Functions
 #'
 #' @noRd
-mod_tab2_meta_server <- function(id){
+mod_tab2_meta_server <- function(id, metadf, infodf){
   moduleServer(id, function(input, output, session){
     ns <- session$ns
 
     ## Summary Stats ####################################################
     output$nstudy <- shiny::renderUI({ # Number of Studies
-      HTML(paste("Number of Studies:", "123", sep = " "))
+      HTML(paste("Number of Studies:", nrow(metadf), sep = " "))
     })
     output$nppt <-  shiny::renderUI({ # Total Participants
-      HTML(paste("Total Participants: ", "987654", sep = " "))
+      HTML(paste("Total Participants: ", sum(metadf$STUDYSIZE), sep = " "))
     })
 
     ## Common metadata table#############################################
     output$metatb <- DT::renderDT({ #DT table
-      shinipsum::random_DT(10, 10)
+      temp1 <- metadf[, 1:9]
+      var_label <- infodf %>%
+        dplyr::filter(VARNAME %in% colnames(temp1)) %>%
+        dplyr::arrange(match(VARNAME, colnames(temp1)))
+
+      DT::datatable(temp1,
+                    filter = "top",
+                    colnames = var_label$LABELS,
+                    rownames = FALSE,
+                    extensions = 'Buttons',
+                    options = dtoptions1
+      )
     })
     metaproxy <- DT::dataTableProxy("metatb") # Proxy of the DT table
     observeEvent(eventExpr = input$clearmeta, clearSearch(metaproxy)) # if button is clicked --> Reset table
 
     ## Data availability by categories#############################################
     output$studyava <- DT::renderDT({ #DT table
-      shinipsum::random_DT(10, 15)
+      temp2 <- metadf %>% dplyr::select(c(STUDY, cat01:cat15))
+      var_label <- infodf %>%
+        dplyr::filter(VARNAME %in% colnames(temp2)) %>%
+        dplyr::arrange(match(VARNAME, colnames(temp2)))
+      DT::datatable(temp2,
+                    filter = "top",
+                    colnames = var_label$LABELS,
+                    rownames = FALSE,
+                    extensions = 'Buttons',
+                    options = dtoptions1
+      )
     })
     avaproxy <- DT::dataTableProxy("studyava") # Proxy of the DT table
     observeEvent(eventExpr = input$clearava, clearSearch(avaproxy)) # if button is clicked --> Reset table
@@ -83,16 +118,16 @@ mod_tab2_meta_server <- function(id){
 # mod_tab2_meta_ui("tab2_meta_1")
 
 ## To be copied in the server
-# mod_tab2_meta_server("tab2_meta_1")
+# mod_tab2_meta_server("tab2_meta_1", metadf = studymeta, infodf = VAR_info)
 
-mod_tab1_statement_app <- function() {
+mod_tab2_meta_app <- function() {
 
   ui <- fluidPage(
     mod_tab2_meta_ui("tab2_meta_0")
   )
 
   server <- function(input, output, session) {
-    mod_tab2_meta_server("tab2_meta_0")
+    mod_tab2_meta_server("tab2_meta_0", metadf = studymeta, infodf = VAR_info)
   }
 
   shinyApp(ui, server)
