@@ -1,0 +1,25 @@
+varname,varlabel,vartype,varvalue
+STUDY,Study Acronym,character,NA
+FULLNAME,Study Full Name,character,NA
+CONTINENT,Continent,factor,"levels = c(""Africa"", ""Asia"", ""Europe"", ""North America"", ""Oceania"", ""South America"")"
+COUNTRY,Country,factor,NA
+MINAGE,Min Age at Recruitment,numeric,NA
+STUDYSIZE,Sample Size,integer,NA
+ACCESS,Available through Repository,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+STUDYFOLLOW,Follow-up Data Available,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+INCOMEGROUP,Country Income Level,factor,"levels = c('Low income', 'Lower middle income', 'Upper middle income', 'High income')"
+cat01,Administration,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat02,Demographics,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat03,Medical History,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat04,Family Disease History,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat05,Service Utilization,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat06,Hospital Data,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat07,Survey Data,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat08,Linkage Data,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat09,Imaging,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat10,Genomic,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat11,OtherA,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat12,OtherB,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat13,OtherC,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat14,OtherD,factor,"levels = c(0,1), labels = c('No', 'Yes')"
+cat15,OtherE,factor,"levels = c(0,1), labels = c('No', 'Yes')"

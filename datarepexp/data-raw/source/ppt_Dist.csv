@@ -1,0 +1,32 @@
+varname,formula,variance,dist,link,varlabel
+ETHNICBACK,0.4;0.2;0.2;0.1;0.05;0.04;0.01,0,categorical,identity,Ethnic Background
+SEX,0.5;0.49;0.01,0,categorical,identity,Sex
+EDUHIGHS,0.55,0.2475,binary,identity,High School Educated
+MARISTAT,0.4,0.24,binary,identity,Married or De-facto
+AGEATASS,SEX+40,20,normal,identity,Age at Assessment
+DECEASED,0.2*AGEATASS/40,0.21,binary,identity,Deceased
+YODtemp,2000;2022,0,uniformInt,identity,Year of Death temp
+YOD,DECEASED*YODtemp,0,nonrandom,identity,Year of Death
+SMOKESTAT,0.5;0.25;0.25,0,categorical,identity,Smoking Status
+ALCSTAT,0.2;0.25;0.55,0,categorical,identity,Alcohol Use Status
+BMI,26 - 1.5*SEX,4,normal,identity,BMI
+GENO1,0.1;0.2;0.3; 0.4,0,categorical,identity,Geno type 1
+GENO2,0.33;0.09;0.19;0.08;0.17;0.05;0.032;0.025;0.033,0,categorical,identity,Geno type 2
+SCALE1temp,1,0,poisson,log,Scale1 tmp
+SCALE1,18+2*SMOKESTAT+SCALE1temp,0,nonrandom,identity,Scale 1
+SCALE2,ALCSTAT + 15,2,normal,identity,Scale 2
+SCALE3,BMI/22 + 2,0.5,gamma,identity,Scale 3
+SCALE4e,0,1,normal,identity,Scale 4 Error
+DIA1,"ifelse(SCALE1 >  25 & SCALE2 > 18, 1, 0)",0,nonrandom,identity,Diagnosis 1
+DIA2,"ifelse(SCALE3 > 5 & BMI > 30, 1, 0)",0,nonrandom,identity,Diagnosis 3
+DIA3,0.18,0.1476,binary,identity,Diagnosis 2
+DIA4,0.23,0.1771,binary,identity,Diagnosis 4
+FAMDIA1,0.09,0.0819,binary,identity,Family History of Diagnosis 1
+FAMDIA2,0.05,0.0475,binary,identity,Family History of Diagnosis 2
+FAMDIA3,0.1,0.09,binary,identity,Family History of Diagnosis 3
+HOSOUP,0.4,0.24,binary,identity,Hospital Outpatient
+HOSINP,0.15,0.1275,binary,identity,Hospital Inpatient
+GP,0.88,0.1056,binary,identity,GP
+MRICOLL,0.88,0.1056,binary,identity,MRI Collected
+IMGCOLL1,0.77,0.1771,binary,identity,Imaging 1 Collected
+IMGCOLL2,0.66,0.2244,binary,identity,Imaging 2 Collected
