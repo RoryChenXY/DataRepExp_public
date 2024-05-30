@@ -23,6 +23,10 @@ attachment::att_amend_desc()
 golem::add_module(name = "tab1_statement", with_test = TRUE) # Name of the module
 golem::add_module(name = "tab2_meta", with_test = TRUE) # Name of the module
 
+golem::add_module(name = "tab3_filter", with_test = TRUE) # Name of the module
+golem::add_utils("inputs", module = "tab3_filter", with_test = TRUE) # utils functions
+golem::add_utils("apply", module = "tab3_filter", with_test = TRUE) # utils functions
+
 ## Add helper functions ----
 ## Creates fct_* and utils_*
 golem::add_fct("helpers", with_test = TRUE)
