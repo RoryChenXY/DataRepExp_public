@@ -22,8 +22,7 @@ app_server <- function(input, output, session) {
     )
   })
 
-  tab3filters <- fluidPage(
-    h1('Filters Tab Contents'))
+
   tab4visua <- fluidPage(
     h1('Visualisation Tab Contents'))
   tab5paq <- fluidPage(
@@ -39,7 +38,7 @@ app_server <- function(input, output, session) {
       ## Tab2 - Summary Tab######################################################################
       tabItem(tabName = "metatab", fluidPage(mod_tab2_meta_ui("tab2_meta_1"))),
       ## Tab3 - Filters Tab######################################################################
-      tabItem(tabName = "filtab", tab3filters),
+      tabItem(tabName = "filtab", fluidPage(mod_tab3_filter_ui("tab3_filter_1", metadf = studymeta, pptdf = ppt_all_fc))),
       ## Tab4 - Visualisation Tab################################################################
       tabItem(tabName = "vistab", tab4visua),
       # Tab5 - Preliminary Analysis Tab########################################################
@@ -51,5 +50,7 @@ app_server <- function(input, output, session) {
   mod_tab1_statement_server("tab1_statement_1")
 
   mod_tab2_meta_server("tab2_meta_1", metadf = studymeta, infodf = VAR_info)
+
+  mod_tab3_filter_server("tab3_filter_1", metadf = studymeta, pptdf = ppt_all_fc, infodf = VAR_info)
 
 }
