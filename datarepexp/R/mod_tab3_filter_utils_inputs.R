@@ -24,15 +24,17 @@
 #' shinyApp(ui, server)
 #' }
 #'
-#' @importFrom shiny checkboxGroupInput
+#' @importFrom shiny checkboxGroupInput wellPanel
 #'
 #' @export
 yn_inputs <- function(inputId, label) {
-  shiny::checkboxGroupInput(
-    inputId = inputId,
-    label = label,
-    choices = c("No", "Yes"),
-    selected = c("No", "Yes")
+  shiny::wellPanel(
+    shiny::checkboxGroupInput(
+      inputId = inputId,
+      label = label,
+      choices = c("No", "Yes"),
+      selected = c("No", "Yes")
+    )
   )
 }
 
@@ -62,15 +64,17 @@ yn_inputs <- function(inputId, label) {
 #' shinyApp(ui, server)
 #' }
 #'
-#' @importFrom shiny checkboxGroupInput
+#' @importFrom shiny checkboxGroupInput wellPanel
 #'
 #' @export
 ynm_inputs <- function(inputId, label) {
-  shiny::checkboxGroupInput(
-    inputId = inputId,
-    label = label,
-    choices = c("No", "Yes", "Missing"),
-    selected = c("No", "Yes", "Missing")
+  shiny::wellPanel(
+    shiny::checkboxGroupInput(
+      inputId = inputId,
+      label = label,
+      choices = c("No", "Yes", "Missing"),
+      selected = c("No", "Yes", "Missing")
+    )
   )
 }
 
@@ -100,7 +104,7 @@ ynm_inputs <- function(inputId, label) {
 #'
 #' shinyApp(ui, server)
 #' }
-#' @importFrom shiny checkboxGroupInput
+#' @importFrom shiny checkboxGroupInput wellPanel
 #' @export
 
 fct_inputs <- function(inputId, label, df, dfvname) {
@@ -110,11 +114,12 @@ fct_inputs <- function(inputId, label, df, dfvname) {
     stop("Expecting a factor variable.")
   }
 
-  checkboxGroupInput(
-    inputId = inputId,
-    label = label,
-    choices = levels(df[[dfvname]]),
-    selected = levels(df[[dfvname]])
+  shiny::wellPanel(
+    shiny::checkboxGroupInput(
+      inputId = inputId,
+      label = label,
+      choices = levels(df[[dfvname]]),
+      selected = levels(df[[dfvname]])
+    )
   )
-
 }
