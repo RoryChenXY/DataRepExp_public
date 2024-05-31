@@ -331,7 +331,9 @@ mod_tab3_filter_ui <- function(id, metadf, pptdf) {
           h4("The filters you have applied include:"),
           wellPanel(fluidRow(DT::DTOutput(NS(id, "filter_sel")))),
           h4("The studies you have identified include:"),
-          wellPanel(fluidRow(DT::DTOutput(NS(id, "filtered_study"))))
+          wellPanel(fluidRow(DT::DTOutput(NS(id, "filtered_study")))),
+          h4("The data availability by categories of the studies you have identified:"),
+          wellPanel(fluidRow(DT::DTOutput(NS(id, "filtered_ava"))))
         ) ## End of Filters Report Tab#######################
       )
     )
@@ -464,29 +466,6 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
         h4(HTML(statement))
       )
     })
-
-
-    # Filtered Studies metadata
-    output$filtered_study <- DT::renderDT({
-
-      f_study_list <- unique(filtered_all()$STUDY) # list of filtered study
-
-      f_study_meta <- metadf %>% dplyr::filter(STUDY %in% f_study_list) #metadata
-
-      var_info <- infodf %>%
-        dplyr::filter(VARNAME %in% colnames(f_study_meta)) %>%
-        dplyr::arrange(match(VARNAME, colnames(f_study_meta)))
-
-      var_label <- var_info$LABEL
-
-      DT::datatable(f_study_meta,
-                    colnames = var_label,
-                    rownames = FALSE,
-                    options = dtoptions2,
-                    extensions = 'Buttons')
-
-    })
-
     # Filters selected
 
     output$filter_sel <- DT::renderDT({
@@ -570,6 +549,52 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
                     options = dtoptions2,
                     extensions = 'Buttons')
     })
+
+    # Filtered Studies metadata
+    output$filtered_study <- DT::renderDT({
+
+      f_study_list <- unique(filtered_all()$STUDY) # list of filtered study
+
+      f_study_meta <- metadf[1:9] %>% dplyr::filter(STUDY %in% f_study_list) #metadata
+
+      var_info <- infodf %>%
+        dplyr::filter(VARNAME %in% colnames(f_study_meta)) %>%
+        dplyr::arrange(match(VARNAME, colnames(f_study_meta)))
+
+      var_label <- var_info$LABEL
+
+      DT::datatable(f_study_meta,
+                    colnames = var_label,
+                    rownames = FALSE,
+                    options = dtoptions2,
+                    extensions = 'Buttons')
+
+    })
+
+    # Filtered Studies Data availability by categories
+    output$filtered_ava <- DT::renderDT({
+
+      f_study_list <- unique(filtered_all()$STUDY) # list of filtered study
+
+      f_study_ava <- metadf %>%
+        dplyr::select(c(STUDY, cat01:cat15)) %>%
+        dplyr::filter(STUDY %in% f_study_list)
+
+      var_info <- infodf %>%
+        dplyr::filter(VARNAME %in% colnames(f_study_ava)) %>%
+        dplyr::arrange(match(VARNAME, colnames(f_study_ava)))
+
+      var_label <- var_info$LABEL
+
+      DT::datatable(f_study_ava,
+                    colnames = var_label,
+                    rownames = FALSE,
+                    options = dtoptions2,
+                    extensions = 'Buttons')
+
+    })
+
+
 
     return(filtered_all)
   })
