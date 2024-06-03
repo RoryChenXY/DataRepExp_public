@@ -6,9 +6,9 @@
 #'
 #' @noRd
 #'
+#' @rawNamespace import(shiny, except=c(dataTableOutput, renderDataTable))
 #' @import dplyr
-#' @import DT
-#' @import shiny
+#' @importFrom DT renderDT DTOutput datatable
 #' @importFrom magrittr %>%
 #' @importFrom purrr map map2 reduce2 set_names
 #' @importFrom shinyjs useShinyjs reset
