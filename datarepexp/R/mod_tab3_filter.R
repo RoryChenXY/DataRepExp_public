@@ -7,12 +7,13 @@
 #' @noRd
 #'
 #' @rawNamespace import(shiny, except=c(dataTableOutput, renderDataTable))
-#' @import dplyr
+#' @importFrom dplyr filter select arrange
 #' @importFrom DT renderDT DTOutput datatable
 #' @importFrom magrittr %>%
 #' @importFrom purrr map map2 reduce2 set_names
 #' @importFrom shinyjs useShinyjs reset
 #' @importFrom useful compare.list
+#' @importFrom shinyWidgets pickerInput
 
 # DT table option for Summary Tables Tab
 dtoptions2 <- list(
@@ -378,7 +379,7 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
 
         # Second, apply filters for factor variables of metadata
         # All factor variables of metadata
-        meta_fct_col <- names(Filter(is.factor, metadf)) #this is the base function
+        meta_fct_col <- names(Filter(is.factor, metadf)) # 'Filter' - this is the {base} function
         meta_fct_col[!meta_fct_col == "COUNTRY"] # Country was not used as a filter
         # List the input values for factor variable filters
         meta_fct_filter_ls <- purrr::map(tolower(meta_fct_col), ~ input[[.x]])
@@ -403,14 +404,14 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
       } else {
         # Applying factor Participant filters
         # All factors of Participant filters
-        ppt_fct_col <- names(Filter(is.factor, pptdf)) #this is the base function
+        ppt_fct_col <- names(Filter(is.factor, pptdf)) # 'Filter' - this is the {base} function
         # List the input values for factor variable filters
         ppt_fct_filter_ls <- purrr::map(tolower(ppt_fct_col), ~ input[[.x]])
         # Using the reduce2 to apply filters
         temp_pptdf <- purrr::reduce2(ppt_fct_col,
-                                   ppt_fct_filter_ls,
-                                   apply_factor_filter,
-                                   .init = pptdf
+                                     ppt_fct_filter_ls,
+                                     apply_factor_filter,
+                                     .init = pptdf
         )
 
         # Applying Numeric Filters
@@ -422,9 +423,9 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
         combined_list <- purrr::map2(range_ls, missv_ls, ~ list(.x, .y))
 
         f_pptdf <- purrr::reduce2(ppt_num_col,
-                                combined_list,
-                                apply_slide_filter,
-                                .init = temp_pptdf
+                                  combined_list,
+                                  apply_slide_filter,
+                                  .init = temp_pptdf
         )
       }
       f_pptdf
@@ -481,8 +482,8 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
 
       # List the input values for ALL factor variable filters
       all_fct_col <- c(meta_fct_col, ppt_fct_col)
-      all_fct_inputs <- purrr::map(tolower(all_fct_col), ~ input[[.x]])
-      all_fct_inputs_str <- sapply(all_fct_inputs, paste, collapse = ",")
+      all_fct_inputs <- purrr::map(tolower(all_fct_col), ~ input[[.x]]) # retrieve the corresponding factor inputs
+      all_fct_inputs_str <- sapply(all_fct_inputs, paste, collapse = ",") # convert to a string
 
 
       # List the default range for ALL factor variable filters
@@ -498,7 +499,7 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
       ppt_num_col <- names(Filter(is.numeric, pptdf))
       # List the input values for ALL factor variable filters
       all_num_col <- c(meta_num_col, ppt_num_col)
-      all_num_inputs <- purrr::map(tolower(all_num_col), ~ unlist(input[[.x]]))
+      all_num_inputs <- purrr::map(tolower(all_num_col), ~ unlist(input[[.x]])) # retrieve the corresponding numeric inputs
       all_num_inputs_str <- sapply(all_num_inputs, paste, collapse = "-")
       # List the default range for ALL numeric variable filters
       all_num_range_str <- c(
