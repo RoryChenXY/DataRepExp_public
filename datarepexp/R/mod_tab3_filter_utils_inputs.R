@@ -85,16 +85,16 @@ ynm_inputs <- function(inputId, label) {
 #' @param inputId Input ID
 #' @param label Input label
 #' @param df A data frame with the factor variable
-#' @param dfvname A factor variable name
+#' @param fctname A factor variable name
 #'
 #' @return A list of HTML elements that can be added to a UI definition.
 #' @examples
 #' ## Only run examples in interactive R sessions
 #' if (interactive()) {
-#' dfsample <- data.frame(fctvar = as.factor(sample(letters[1:3], 10, replace = TRUE)))
+#' data <- data.frame(fctvar = as.factor(sample(letters[1:3], 10, replace = TRUE)))
 #'
 #' ui <- fluidPage(
-#'   fct_inputs("somevalue", "A factor checkbox", dfsample, fctvar),
+#'   fct_inputs("somevalue", "A factor checkbox", data, "fctvar"),
 #'   verbatimTextOutput("value")
 #' )
 #'
@@ -107,10 +107,10 @@ ynm_inputs <- function(inputId, label) {
 #' @importFrom shiny checkboxGroupInput wellPanel
 #' @export
 
-fct_inputs <- function(inputId, label, df, dfvname) {
+fct_inputs <- function(inputId, label, df, fctname) {
 
   # Check if valid
-  if (is.null(levels(df[[dfvname]]))) {
+  if (is.null(levels(df[[fctname]]))) {
     stop("Expecting a factor variable.")
   }
 
@@ -118,8 +118,8 @@ fct_inputs <- function(inputId, label, df, dfvname) {
     shiny::checkboxGroupInput(
       inputId = inputId,
       label = label,
-      choices = levels(df[[dfvname]]),
-      selected = levels(df[[dfvname]])
+      choices = levels(df[[fctname]]),
+      selected = levels(df[[fctname]])
     )
   )
 }
