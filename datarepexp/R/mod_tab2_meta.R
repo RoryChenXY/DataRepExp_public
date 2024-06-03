@@ -7,7 +7,7 @@
 #' @noRd
 #'
 #' @rawNamespace import(shiny, except=c(dataTableOutput, renderDataTable))
-#' @import dplyr
+#' @importFrom dplyr select filter arrange
 #' @importFrom magrittr %>%
 #' @importFrom DT renderDT DTOutput datatable dataTableProxy clearSearch
 
