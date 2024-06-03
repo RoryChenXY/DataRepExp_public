@@ -10,8 +10,8 @@
 #' @importFrom dplyr filter
 #'
 #' @examples
-#' dfsample <- data.frame(fctvar = as.factor(sample(letters[1:3], 10, replace = TRUE)))
-#' df_filtered <- apply_factor_filter(dfsample, 'fctvar', c('a', 'b'))
+#' data <- data.frame(fctvar = as.factor(rep(c("a", "b", "c"), 10)))
+#' df_filtered <- apply_factor_filter(data, 'fctvar', c('a', 'b'))
 #'
 #' @export
 apply_factor_filter <- function(df, col, vals) {
@@ -35,8 +35,9 @@ apply_factor_filter <- function(df, col, vals) {
 #' @importFrom dplyr filter
 #'
 #' @examples
-#' dfsample <- data.frame(numvar = sample(1:10, 100, replace = TRUE))
-#' df_filtered <- apply_slide_filter(dfsample, 'numvar', list(3, 8, TRUE))
+#' data <- data.frame(numvar  = rep(c(1,2,3, NA), 10))
+#' df_filtered_a <- apply_slide_filter(data, 'numvar', list(1, 2, 1))
+#' df_filtered_b <- apply_slide_filter(data, 'numvar', list(1, 2, 0))
 #'
 #' @export
 apply_slide_filter <- function(df, col, vals) {
