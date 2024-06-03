@@ -6,10 +6,10 @@
 #'
 #' @noRd
 #'
+#' @rawNamespace import(shiny, except=c(dataTableOutput, renderDataTable))
 #' @import dplyr
-#' @import DT
-#' @import shiny
 #' @importFrom magrittr %>%
+#' @importFrom DT renderDT DTOutput datatable dataTableProxy clearSearch
 
 # DT table option for Summary Tables Tab
 dtoptions1 <- list(
@@ -43,7 +43,7 @@ mod_tab2_meta_ui <- function(id){
                     offset = 11, align = "right", # on the right side
                     div(
                       style = "margin-bottom: 20px;",
-                      actionButton(NS(id, "clearmeta"), "CLEAR")
+                      shiny::actionButton(NS(id, "clearmeta"), "CLEAR")
                     )
     )),
     fluidRow(column(12, DT::DTOutput(NS(id, "metatb")))),
@@ -54,7 +54,7 @@ mod_tab2_meta_ui <- function(id){
                     offset = 11, align = "right", # on the right side
                     div(
                       style = "margin-bottom: 20px;",
-                      actionButton(NS(id, "clearava"), "CLEAR")
+                      shiny::actionButton(NS(id, "clearava"), "CLEAR")
                     )
     )),
     fluidRow(column(12, DT::DTOutput(NS(id, "studyava"))))
@@ -92,7 +92,7 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
       )
     })
     metaproxy <- DT::dataTableProxy("metatb") # Proxy of the DT table
-    observeEvent(eventExpr = input$clearmeta, clearSearch(metaproxy)) # if button is clicked --> Reset table
+    shiny::observeEvent(eventExpr = input$clearmeta, DT::clearSearch(metaproxy)) # if button is clicked --> Reset table
 
     ## Data availability by categories#############################################
     output$studyava <- DT::renderDT({ #DT table
@@ -109,7 +109,7 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
       )
     })
     avaproxy <- DT::dataTableProxy("studyava") # Proxy of the DT table
-    observeEvent(eventExpr = input$clearava, clearSearch(avaproxy)) # if button is clicked --> Reset table
+    shiny::observeEvent(eventExpr = input$clearava, DT::clearSearch(avaproxy)) # if button is clicked --> Reset table
 
   })
 }
