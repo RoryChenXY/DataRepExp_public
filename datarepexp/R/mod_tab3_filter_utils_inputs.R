@@ -91,7 +91,7 @@ ynm_inputs <- function(inputId, label) {
 #' @examples
 #' ## Only run examples in interactive R sessions
 #' if (interactive()) {
-#' data <- data.frame(fctvar = as.factor(sample(letters[1:3], 10, replace = TRUE)))
+#' data <- data.frame(fctvar = as.factor(rep(c("a", "b", "c"), 10)))
 #'
 #' ui <- fluidPage(
 #'   fct_inputs("somevalue", "A factor checkbox", data, "fctvar"),
