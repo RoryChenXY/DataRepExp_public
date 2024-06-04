@@ -38,7 +38,7 @@ mod_tab1_statement_server <- function(id){
 ## To be copied in the server
 # mod_tab1_statement_server("tab1_statement_1")
 
-# Module App
+# tab1_statement app
 mod_tab1_statement_app <- function() {
 
   ui <- fluidPage(
