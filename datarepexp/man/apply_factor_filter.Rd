@@ -20,7 +20,7 @@ A filtered data frame
 Applying filters to factor variable
 }
 \examples{
-dfsample <- data.frame(fctvar = as.factor(sample(letters[1:3], 10, replace = TRUE)))
-df_filtered <- apply_factor_filter(dfsample, 'fctvar', c('a', 'b'))
+data <- data.frame(fctvar = as.factor(rep(c("a", "b", "c"), 10)))
+df_filtered <- apply_factor_filter(data, 'fctvar', c('a', 'b'))
 
 }

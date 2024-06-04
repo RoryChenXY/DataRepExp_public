@@ -4,7 +4,7 @@
 \alias{fct_inputs}
 \title{Check Box Group Input with choices of the levels of a factor variable.}
 \usage{
-fct_inputs(inputId, label, df, dfvname)
+fct_inputs(inputId, label, df, fctname)
 }
 \arguments{
 \item{inputId}{Input ID}
@@ -13,7 +13,7 @@ fct_inputs(inputId, label, df, dfvname)
 
 \item{df}{A data frame with the factor variable}
 
-\item{dfvname}{A factor variable name}
+\item{fctname}{A factor variable name}
 }
 \value{
 A list of HTML elements that can be added to a UI definition.
@@ -24,10 +24,10 @@ Create a check box group input with choices of the levels of a factor variable.
 \examples{
 ## Only run examples in interactive R sessions
 if (interactive()) {
-dfsample <- data.frame(fctvar = as.factor(sample(letters[1:3], 10, replace = TRUE)))
+data <- data.frame(fctvar = as.factor(rep(c("a", "b", "c"), 10)))
 
 ui <- fluidPage(
-  fct_inputs("somevalue", "A factor checkbox", dfsample, fctvar),
+  fct_inputs("somevalue", "A factor checkbox", data, "fctvar"),
   verbatimTextOutput("value")
 )
 

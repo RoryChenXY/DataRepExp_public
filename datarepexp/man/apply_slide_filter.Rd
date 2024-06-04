@@ -20,7 +20,8 @@ A filtered data frame
 Applying filters to numeric variable based on the slider inputs
 }
 \examples{
-dfsample <- data.frame(numvar = sample(1:10, 100, replace = TRUE))
-df_filtered <- apply_slide_filter(dfsample, 'numvar', list(3, 8, TRUE))
+data <- data.frame(numvar  = rep(c(1,2,3, NA), 10))
+df_filtered_a <- apply_slide_filter(data, 'numvar', list(1, 2, 1))
+df_filtered_b <- apply_slide_filter(data, 'numvar', list(1, 2, 0))
 
 }
