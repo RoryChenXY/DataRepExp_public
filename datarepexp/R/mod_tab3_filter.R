@@ -1,6 +1,5 @@
-#' tab3_filter UI Function
-#'
-#' @description A shiny Module.
+
+#' @description A shiny Module for applying filters and filter report .
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
 #'
@@ -30,6 +29,7 @@ dtoptions2 <- list(
                  'print')
 )
 
+#' tab3_filter UI Function
 mod_tab3_filter_ui <- function(id, metadf, pptdf) {
   ns <- NS(id)
   tagList(
@@ -193,10 +193,7 @@ mod_tab3_filter_ui <- function(id, metadf, pptdf) {
               h3("Demographics"),
               fluidRow(
                 column(3, fct_inputs(NS(id, "ethnicback"), "Ethnic Background", pptdf, "ETHNICBACK")),
-                column(3, fct_inputs(
-                  NS(id, "sex"), "Sex",pptdf, "SEX" )),
-
-
+                column(3, fct_inputs(NS(id, "sex"), "Sex", pptdf, "SEX" )),
                 column(3, ynm_inputs(NS(id, "eduhighs"), "High School Educated")),
                 column(3, ynm_inputs(NS(id, "maristat"), "Married/De-facto"))
               ),
@@ -221,14 +218,8 @@ mod_tab3_filter_ui <- function(id, metadf, pptdf) {
             wellPanel( #### Lifestyle ############################################
               h3("Lifestyle"),
               fluidRow(
-                column(3, fct_inputs(
-                  NS(id, "smokestat"), "Smoking Status",
-                  pptdf, "SMOKESTAT"
-                )),
-                column(3, fct_inputs(
-                  NS(id, "alcstat"), "Alcohol Use Status",
-                  pptdf, "ALCSTAT"
-                )),
+                column(3, fct_inputs(NS(id, "smokestat"), "Smoking Status", pptdf, "SMOKESTAT")),
+                column(3, fct_inputs(NS(id, "alcstat"), "Alcohol Use Status", pptdf, "ALCSTAT")),
                 column(
                   6,
                   wellPanel(
@@ -388,7 +379,7 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
                                       meta_fct_filter_ls,
                                       apply_factor_filter,
                                       .init = temp1
-        )
+        ) # Applying the factor filters based on inputs
 
         # Applying other filters of metadata
         f_metadf <- temp_metadf %>%
