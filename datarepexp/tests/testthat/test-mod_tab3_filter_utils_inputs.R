@@ -65,7 +65,7 @@ test_that("Default fct_inputs",{
 
   expect_length(choiceslist, length(choices)) # same length
 
-  values <- purrr::map2(choiceslist, choices, function(x, y) grepl(pattern = y, x = as.character(x))) # options should be the levels and same order
+  values <- purrr::map2(choiceslist, choices, function(x, y) grepl(pattern = y, x = as.character(x))) # options should be the levels of the factor and with the same order
   values <- unlist(values)
   expect_true(all(values))
 
@@ -73,7 +73,7 @@ test_that("Default fct_inputs",{
   checked <- unlist(checked)
   expect_true(all(checked))
 
-  expect_error(fct_inputs("id_fct_abc", "label_fct_abc", data, "charvar"))
-  expect_error(fct_inputs("id_fct_abc", "label_fct_abc", data, "numvar"))
+  expect_error(fct_inputs("id_fct_abc", "label_fct_abc", data, "charvar")) # not factor variable
+  expect_error(fct_inputs("id_fct_abc", "label_fct_abc", data, "numvar")) # not factor variable
 
 })
