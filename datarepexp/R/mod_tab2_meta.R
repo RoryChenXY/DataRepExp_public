@@ -10,21 +10,6 @@
 #' @importFrom dplyr select filter arrange
 #' @importFrom magrittr %>%
 #' @importFrom DT renderDT DTOutput datatable dataTableProxy clearSearch
-
-# DT table option for Summary Tables Tab
-dtoptions1 <- list(
-  searching = TRUE,
-  scrollX = TRUE,
-  dom = 'Bfrtip',
-  buttons = list('pageLength',
-                 list(
-                   extend = 'colvis',
-                   columns = ":gt(0)"),
-                 'colvisRestore',
-                 'csv',
-                 'print')
-)
-
 mod_tab2_meta_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -75,6 +60,20 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
     output$nppt <-  shiny::renderUI({ # Total Participants
       HTML(paste("Total Participants: ", sum(metadf$STUDYSIZE), sep = " "))
     })
+
+    # DT table option
+    dtoptions1 <- list(
+      searching = TRUE,
+      scrollX = TRUE,
+      dom = 'Bfrtip',
+      buttons = list('pageLength',
+                     list(
+                       extend = 'colvis',
+                       columns = ":gt(0)"),
+                     'colvisRestore',
+                     'csv',
+                     'print')
+    )
 
     ## Common metadata table#############################################
     output$metatb <- DT::renderDT({ #DT table
