@@ -40,7 +40,7 @@ app_server <- function(input, output, session) {
       ## Tab3 - Filters Tab######################################################################
       tabItem(tabName = "filtab", fluidPage(mod_tab3_filter_ui("tab3_filter_1", metadf = studymeta, pptdf = ppt_all_fc))),
       ## Tab4 - Visualisation Tab################################################################
-      tabItem(tabName = "vistab", tab4visua),
+      tabItem(tabName = "vistab", fluidPage(mod_tab4_visual_ui("tab4_visual_1"))),
       # Tab5 - Preliminary Analysis Tab########################################################
       tabItem(tabName = "paquan", tab5paq),
       tabItem(tabName = "pacate", tab5pac)
@@ -52,5 +52,22 @@ app_server <- function(input, output, session) {
   mod_tab2_meta_server("tab2_meta_1", metadf = studymeta, infodf = VAR_info)
 
   mod_tab3_filter_server("tab3_filter_1", metadf = studymeta, pptdf = ppt_all_fc, infodf = VAR_info)
+
+  filteredppt <- mod_tab3_filter_server("tab3_filter_1", metadf = studymeta, pptdf = ppt_all_fc, infodf = VAR_info)
+
+  ### Warning message for no participants identified####################################################################################
+  observeEvent(filteredppt(), { #update whenever filter changes
+
+    if(nrow(filteredppt()) == 0){
+      shiny::showNotification(id = 'fppt_warning', # Save the ID for removal later
+                              'Base on the filters you have selected, no participants were identified, please update your selection.',
+                              duration = NULL, type='warning', closeButton=TRUE)
+    } else{
+      shiny::removeNotification(id = 'fppt_warning')
+    }
+  })
+
+  mod_tab4_visual_server("tab4_visual_1", metadf = studymeta, react_df = filteredppt)
+
 
 }
