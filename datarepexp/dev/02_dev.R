@@ -27,7 +27,13 @@ golem::add_module(name = "tab3_filter", with_test = TRUE) # Name of the module
 golem::add_utils("inputs", module = "tab3_filter", with_test = TRUE) # utils functions
 golem::add_utils("apply", module = "tab3_filter", with_test = TRUE) # utils functions
 
-## Add helper functions ----
+golem::add_module(name = "tab4_visual", with_test = TRUE) # Name of the module
+
+## Add plotly visualisation functions ----
+golem::add_fct("visplotly", with_test = TRUE)
+
+golem::add_utils("countfactor", with_test = TRUE)
+
 ## Creates fct_* and utils_*
 golem::add_fct("helpers", with_test = TRUE)
 golem::add_utils("helpers", with_test = TRUE)
