@@ -17,8 +17,6 @@
 #' @examples
 #' df <- data.frame(fctvar = as.factor(rep(c("a", "b", "c"), 10)))
 #' countfactor(data = df, var = fctvar, varlabel = 'variable label')
-#'
-#' @noRd
 countfactor <- function(data, var, varlabel){
 
   # Check if Data is a data.frame
