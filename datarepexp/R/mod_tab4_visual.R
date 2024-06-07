@@ -8,7 +8,7 @@
 #'
 #' @import shiny
 #' @import ggplot2
-#' @importFrom plotly plotlyOutput renderPlotly ggplotly
+#' @importFrom plotly plotlyOutput renderPlotly ggplotly plot_ly layout
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate select filter summarise group_by ungroup n
 #' @importFrom tidyr complete drop_na
@@ -343,7 +343,7 @@ mod_tab4_visual_server <- function(id, metadf, react_df){
     #### BMI by Sex Histogram########################################################################################
     output$bmihis <- plotly::renderPlotly({
       a <- react_df() %>% dplyr::mutate(BMI = round(BMI))
-      plotly_histogram_grouped(a, var = "BMI", groupvar = "SEX", label = "Sex")
+      plotly_histogram_grouped(a, var = "BMI", groupvar = "SEX", varlabel = "BMI", grouplabel = "Sex")
     })
     ## Tab 4-4 Scales ##########################################################
     ###  Tab 4-4 Layout ########################################################
@@ -367,24 +367,24 @@ mod_tab4_visual_server <- function(id, metadf, react_df){
     #### Scale 1 by Diagnosis 1 Histogram########################################################################################
     output$s1his <- plotly::renderPlotly({
       a <- react_df()
-      plotly_histogram_grouped(a, var = "SCALE1", groupvar = "DIA1", label = "Diagnosis 1")
+      plotly_histogram_grouped(a, var = "SCALE1", groupvar = "DIA1", varlabel = "Scale 1", grouplabel = "Disease Diagnosis 1")
 
     })
     #### Scale 2 by ALCSTAT Histogram########################################################################################
     output$s2his <- plotly::renderPlotly({
       a <- react_df()
-      plotly_histogram_grouped(a, var = "SCALE2", groupvar = "ALCSTAT", label = "Alcohol Use Status")
+      plotly_histogram_grouped(a, var = "SCALE2", groupvar = "ALCSTAT", varlabel = "Scale 2", grouplabel = "Alcohol Use Status")
 
     })
     #### Scale 3 by Hospital Inpatient Histogram########################################################################################
     output$s3his <- plotly::renderPlotly({
       a <- react_df()
-      plotly_histogram_grouped(a, var = "SCALE3", groupvar = "HOSINP", label = "Hospital Inpatient")
+      plotly_histogram_grouped(a, var = "SCALE3", groupvar = "HOSINP", varlabel = "Scale 3", grouplabel = "Hospital Inpatient")
     })
     #### Scale 4 by GENO1 Histogram########################################################################################
     output$s4his <- plotly::renderPlotly({
       a <- react_df()
-      plotly_histogram_grouped(a, var = "SCALE4", groupvar = "GENO1", label = "Geno1 Type")
+      plotly_histogram_grouped(a, var = "SCALE4", groupvar = "GENO1", varlabel = "Scale 4", grouplabel = "Geno type 1")
     })
     ## Tab 4-5 Health and Family History #######################################
     ###  Tab 4-5 Layout ########################################################
