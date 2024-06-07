@@ -29,10 +29,17 @@ golem::add_utils("apply", module = "tab3_filter", with_test = TRUE) # utils func
 
 golem::add_module(name = "tab4_visual", with_test = TRUE) # Name of the module
 
-## Add plotly visualisation functions ----
-golem::add_fct("visplotly", with_test = TRUE)
+golem::add_module(name = "tab5_pac", with_test = TRUE) # Name of the module
+golem::add_module(name = "tab5_paq", with_test = TRUE) # Name of the module
 
+
+## Add plotly visualisation functions ----
+
+golem::add_fct("visplotly", with_test = TRUE)
 golem::add_utils("countfactor", with_test = TRUE)
+golem::add_utils("selectedvar", with_test = TRUE)
+
+
 
 ## Creates fct_* and utils_*
 golem::add_fct("helpers", with_test = TRUE)
