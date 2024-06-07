@@ -105,7 +105,7 @@ plotly_bar_multifct <- function(data){
 #'
 #' @param df A data frame to be processed
 #' @param var A numeric variable to generate histogram
-#' @param groupvar Grouping variable
+#' @param groupvar A grouping variable
 #' @param label Legend label
 #'
 #' @importFrom rlang enquo
@@ -120,7 +120,8 @@ plotly_bar_multifct <- function(data){
 #' @examples
 #' group_his_df <- data.frame(numvar = rep(1: 20, 5), fctvar = as.factor(c(rep(c("A", "B", "C"), 30), rep("A", 10))))
 #' plotly_histogram_grouped(df = group_his_df, var = "numvar", groupvar = "fctvar", label = "Groups")
-plotly_histogram_grouped <- function(df, var, groupvar, label){
+#'
+plotly_histogram_grouped <- function(df, var, groupvar, varlabel, grouplabel){
 
   if (class(df) != "data.frame") {
     stop("Expecting a data frame")
@@ -133,13 +134,30 @@ plotly_histogram_grouped <- function(df, var, groupvar, label){
                        x = ~.data[[var]],
                        color = ~.data[[groupvar]],
                        colors = "Pastel1",
-                       hovertemplate = paste(var,': %{x}',
+                       alpha = 0.6,
+                       hovertemplate = paste(varlabel,': %{x}',
                                              '<br>Counts: %{y}<br>')
   ) %>%
     plotly::add_histogram() %>%
-    plotly::layout(xaxis  = list(title = var),
+    plotly::layout(xaxis  = list(title = varlabel),
                    yaxis  = list(title = "Counts", showgrid = T),
-                   legend = list(title = list(text = label), orientation = "v"))
+                   legend = list(title = list(text = grouplabel), orientation = "v"),
+                   updatemenus = list(
+                     list(
+                       x = 1.2,
+                       y = 0.4,
+                       type = "buttons",
+                       buttons = list(
+                         list(method = "relayout",
+                              args = list("barmode", "group"),
+                              label = "Group"),
+                         list(method = "relayout",
+                              args = list("barmode", "stack"),
+                              label = "Stack"),
+                         list(method = "relayout",
+                              args = list("barmode", "overlay"),
+                              label = "Overlay"))))
+    )
 
   return(p)
 }
