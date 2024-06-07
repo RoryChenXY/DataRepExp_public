@@ -16,18 +16,16 @@ app_server <- function(input, output, session) {
       shinydashboard::menuItem("Preliminary Analysis",
                                icon = icon("magnifying-glass-chart"),
                                startExpanded = TRUE,
-                               menuSubItem("Quantitative Outcome", tabName = "paquan"),
-                               menuSubItem("Categorical Outcome", tabName = "pacate")
+                               menuSubItem("Categorical Outcome", tabName = "pacate"),
+                               menuSubItem("Quantitative Outcome", tabName = "paquan")
+
       )
     )
   })
 
 
-  tab4visua <- fluidPage(
-    h1('Visualisation Tab Contents'))
+
   tab5paq <- fluidPage(
-    h1('Preliminary Analysis Tab Contents'))
-  tab5pac <- fluidPage(
     h1('Preliminary Analysis Tab Contents'))
 
   ## Body############################################################################################################
@@ -42,8 +40,9 @@ app_server <- function(input, output, session) {
       ## Tab4 - Visualisation Tab################################################################
       tabItem(tabName = "vistab", fluidPage(mod_tab4_visual_ui("tab4_visual_1"))),
       # Tab5 - Preliminary Analysis Tab########################################################
-      tabItem(tabName = "paquan", tab5paq),
-      tabItem(tabName = "pacate", tab5pac)
+      tabItem(tabName = "pacate", fluidPage(mod_tab5_pac_ui("tab5_pac_1"))),
+      tabItem(tabName = "paquan", tab5paq)
+
     )
   })
 
@@ -68,6 +67,8 @@ app_server <- function(input, output, session) {
   })
 
   mod_tab4_visual_server("tab4_visual_1", metadf = studymeta, react_df = filteredppt)
+
+  mod_tab5_pac_server("tab5_pac_1",  react_df = filteredppt)
 
 
 }
