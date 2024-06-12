@@ -14,9 +14,6 @@
 #' @importFrom tidyr complete drop_na
 #' @importFrom scales breaks_pretty
 #' @importFrom forcats fct_rev
-
-
-# tab4_visual UI Function
 mod_tab4_visual_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -35,7 +32,6 @@ mod_tab4_visual_ui <- function(id){
         tabPanel("Imaging and Genomic Data", uiOutput(NS(id, "tab4imgeno")))
       )
     )
-
   )
 }
 
@@ -43,7 +39,7 @@ mod_tab4_visual_ui <- function(id){
 #'
 #' @noRd
 mod_tab4_visual_server <- function(id, metadf, react_df){
-  moduleServer( id, function(input, output, session){
+  moduleServer(id, function(input, output, session){
     ns <- session$ns
     # Check the filtered results
     output$fvalid <- renderUI({
@@ -238,9 +234,6 @@ mod_tab4_visual_server <- function(id, metadf, react_df){
       plotly_bar_multifct(df)
     })
 
-
-
-
     ## Tab 4-2 Demographics ####################################################
     ###  Tab 4-2 Layout ########################################################
     output$tab4dem <- renderUI({
@@ -272,7 +265,6 @@ mod_tab4_visual_server <- function(id, metadf, react_df){
         )) %>%
         dplyr::group_by(SEX) %>%
         count(AgeCat, name = "Count", .drop = FALSE)
-
 
       p <- ggplot2::ggplot(a, aes(x = AgeCat, y = Count, fill = SEX, text = paste("Count: ", Count, "<br>Sex: ", SEX))) +
         ggplot2::geom_bar(stat = "identity", position = "dodge") +
@@ -507,14 +499,24 @@ mod_tab4_visual_server <- function(id, metadf, react_df){
 ## To be copied in the server
 # mod_tab4_visual_server("tab4_visual_1", metadf = studymeta, react_df = filteredppt)
 
-
+#' tab4_visual module app
+#'
+#' @export
+#'
+#' @noRd
 mod_tab4_visual_app <- function() {
-
   ui <- fluidPage(
-    mod_tab4_visual_ui("tab4_visual_0")
+    fluidRow(
+      mod_tab3_filter_ui("tab3_filter_0", metadf = studymeta, pptdf = ppt_all_fc)
+    ),
+    fluidRow(
+      mod_tab4_visual_ui("tab4_visual_0")
+    )
   )
 
   server <- function(input, output, session) {
+    mod_tab3_filter_server("tab3_filter_0", metadf = studymeta, pptdf = ppt_all_fc, infodf = VAR_info)
+    filteredppt <- mod_tab3_filter_server("tab3_filter_0", metadf = studymeta, pptdf = ppt_all_fc, infodf = VAR_info)
     mod_tab4_visual_server("tab4_visual_0", metadf = studymeta, react_df = filteredppt)
   }
 

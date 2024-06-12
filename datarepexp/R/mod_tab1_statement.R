@@ -26,9 +26,8 @@ mod_tab1_statement_ui <- function(id){
 #'
 #' @noRd
 mod_tab1_statement_server <- function(id){
-  moduleServer( id, function(input, output, session){
+  moduleServer(id, function(input, output, session){
     ns <- session$ns
-
   })
 }
 
@@ -38,7 +37,12 @@ mod_tab1_statement_server <- function(id){
 ## To be copied in the server
 # mod_tab1_statement_server("tab1_statement_1")
 
-# tab1_statement app
+
+#' tab1_statement module app
+#'
+#' @export
+#'
+#' @noRd
 mod_tab1_statement_app <- function() {
 
   ui <- fluidPage(

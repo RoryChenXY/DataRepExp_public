@@ -13,7 +13,6 @@
 #' @importFrom tidyr drop_na pivot_wider
 #' @importFrom RColorBrewer brewer.pal
 #' @importFrom plotly plotlyOutput renderPlotly ggplotly plot_ly layout
-
 mod_tab5_pac_ui <- function(id){
   ns <- NS(id)
   quanchoice <- list(
@@ -35,6 +34,7 @@ mod_tab5_pac_ui <- function(id){
     "Imaging Data"               = list("MRI Collected", "Imaging 1 Collected", "Imaging 2 Collected"),
     "Genomic Data"               = list("Geno type 1", "Geno type 2")
   )
+
   tagList(
     h2("The Preliminary Analysis Tab generates results based on the filters you have applied."),
     h2("Please allow up to a minute for the results to load."),
@@ -197,8 +197,8 @@ mod_tab5_pac_server <- function(id, react_df){
         fluidRow(h3(textOutput(NS(id, "cyx2text")))), # statement text
         br(),
         fluidRow(
-          column(5, tableOutput(NS(id, "cyx2stats"))), # # summary statistics
-          column(7, plotly::plotlyOutput(NS(id, "cyx2bar1")))
+          column(5, tableOutput(NS(id, "cyx2stats"))), # summary statistics
+          column(7, plotly::plotlyOutput(NS(id, "cyx2bar"))) # bar plots
         )
       )
     })
@@ -230,7 +230,7 @@ mod_tab5_pac_server <- function(id, react_df){
     })
 
     # Barplot with two categorical variables
-    output$cyx2bar1 <- plotly::renderPlotly({
+    output$cyx2bar <- plotly::renderPlotly({
       yclabel <- input$ycate
       ycvar <- selectedvar(yclabel)
 
@@ -278,14 +278,25 @@ mod_tab5_pac_server <- function(id, react_df){
 ## To be copied in the server
 # mod_tab5_pac_server("tab5_pac_1",  react_df = filteredppt)
 
-
+#' tab5_pac module app
+#'
+#' @export
+#'
+#' @noRd
 mod_tab5_pac_app <- function() {
 
   ui <- fluidPage(
-    mod_tab5_pac_ui("tab5_pac_0")
+    fluidRow(
+      mod_tab3_filter_ui("tab3_filter_0", metadf = studymeta, pptdf = ppt_all_fc)
+    ),
+    fluidRow(
+      mod_tab5_pac_ui("tab5_pac_0")
+    )
   )
 
   server <- function(input, output, session) {
+    mod_tab3_filter_server("tab3_filter_0", metadf = studymeta, pptdf = ppt_all_fc, infodf = VAR_info)
+    filteredppt <- mod_tab3_filter_server("tab3_filter_0", metadf = studymeta, pptdf = ppt_all_fc, infodf = VAR_info)
     mod_tab5_pac_server("tab5_pac_0", react_df = filteredppt)
   }
 

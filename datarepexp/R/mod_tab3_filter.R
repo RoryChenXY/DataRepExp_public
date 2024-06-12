@@ -1,35 +1,19 @@
-
-#' @description A shiny Module for applying filters and filter report .
+#' tab3_filter UI Function
+#'
+#' @description A shiny Module for tab 3 applying filters and filter report .
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
 #'
 #' @noRd
 #'
 #' @rawNamespace import(shiny, except=c(dataTableOutput, renderDataTable))
+#' @importFrom shinyjs useShinyjs reset
+#' @importFrom shinyWidgets pickerInput
+#' @importFrom DT DTOutput renderDT datatable
 #' @importFrom dplyr filter select arrange
-#' @importFrom DT renderDT DTOutput datatable
 #' @importFrom magrittr %>%
 #' @importFrom purrr map map2 reduce2 set_names
-#' @importFrom shinyjs useShinyjs reset
 #' @importFrom useful compare.list
-#' @importFrom shinyWidgets pickerInput
-
-# DT table option for Summary Tables Tab
-dtoptions2 <- list(
-  searching = FALSE,
-  scrollX = TRUE,
-  dom = 'Bfrtip',
-  buttons = list('pageLength',
-                 list(
-                   extend = 'colvis',
-                   columns = ":gt(0)"),
-                 'colvisRestore',
-                 'csv',
-                 'copy',
-                 'print')
-)
-
-#' tab3_filter UI Function
 mod_tab3_filter_ui <- function(id, metadf, pptdf) {
   ns <- NS(id)
   tagList(
@@ -107,9 +91,9 @@ mod_tab3_filter_ui <- function(id, metadf, pptdf) {
                     selected = levels(metadf$CONTINENT),
                     multiple = TRUE,
                     options = list(
-                      enable_search = TRUE,
-                      non_selected_header = "Choose between:",
-                      selected_header = "You have selected:"
+                      `actions-box` = TRUE,
+                      `select-all` = TRUE,
+                      `deselect-all` = TRUE
                     )
                   )
                 )),
@@ -339,6 +323,21 @@ mod_tab3_filter_ui <- function(id, metadf, pptdf) {
 mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
+    # DT table option for Summary Tables Tab
+    dtoptions2 <- list(
+      searching = FALSE,
+      scrollX = TRUE,
+      dom = 'Bfrtip',
+      buttons = list('pageLength',
+                     list(
+                       extend = 'colvis',
+                       columns = ":gt(0)"),
+                     'colvisRestore',
+                     'csv',
+                     'copy',
+                     'print')
+    )
+
     # Check Reset Buttons ######################################################
     # Reset All Filters
     observeEvent(input$resetallf, {
@@ -598,19 +597,21 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
 ## To be copied in the server
 # mod_tab3_filter_server("tab3_filter_1", metadf = studymeta, pptdf = ppt_all_fc, infodf = VAR_info)
 
+#' tab3_filter module app
+#'
+#' @export
+#'
+#' @noRd
 mod_tab3_filter_app <- function() {
 
   ui <- fluidPage(
     mod_tab3_filter_ui("tab3_filter_0", metadf = studymeta, pptdf = ppt_all_fc)
-
   )
 
   server <- function(input, output, session) {
     mod_tab3_filter_server("tab3_filter_0", metadf = studymeta, pptdf = ppt_all_fc, infodf = VAR_info)
-
   }
 
   shinyApp(ui, server)
-
 }
 

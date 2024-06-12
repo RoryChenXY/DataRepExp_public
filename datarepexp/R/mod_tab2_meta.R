@@ -53,14 +53,6 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
   moduleServer(id, function(input, output, session){
     ns <- session$ns
 
-    ## Summary Stats ####################################################
-    output$nstudy <- shiny::renderUI({ # Number of Studies
-      HTML(paste("Number of Studies:", nrow(metadf), sep = " "))
-    })
-    output$nppt <-  shiny::renderUI({ # Total Participants
-      HTML(paste("Total Participants: ", sum(metadf$STUDYSIZE), sep = " "))
-    })
-
     # DT table option
     dtoptions1 <- list(
       searching = TRUE,
@@ -74,6 +66,14 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
                      'csv',
                      'print')
     )
+
+    ## Summary Stats ####################################################
+    output$nstudy <- shiny::renderUI({ # Number of Studies
+      HTML(paste("Number of Studies:", nrow(metadf), sep = " "))
+    })
+    output$nppt <-  shiny::renderUI({ # Total Participants
+      HTML(paste("Total Participants: ", sum(metadf$STUDYSIZE), sep = " "))
+    })
 
     ## Common metadata table#############################################
     output$metatb <- DT::renderDT({ #DT table
@@ -119,6 +119,11 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
 ## To be copied in the server
 # mod_tab2_meta_server("tab2_meta_1", metadf = studymeta, infodf = VAR_info)
 
+#' tab2_meta module app
+#'
+#' @export
+#'
+#' @noRd
 mod_tab2_meta_app <- function() {
 
   ui <- fluidPage(
