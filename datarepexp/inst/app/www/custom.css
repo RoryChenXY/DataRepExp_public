@@ -1,1 +1,11 @@
- 
+.sidebar-menu{
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  overflow-y: auto;
+  width: 220px;
+}
+
+.shiny-notification-content-text {
+  font-size: 20px;
+}
