@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_tab3_filter_utils_inputs.R
 \name{fct_inputs}
 \alias{fct_inputs}
-\title{Check Box Group Input with choices of the levels of a factor variable.}
+\title{fct_inputs}
 \usage{
 fct_inputs(inputId, label, df, fctname)
 }
@@ -37,4 +37,5 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 }
+
 }

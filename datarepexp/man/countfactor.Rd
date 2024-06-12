@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils_countfactor.R
 \name{countfactor}
 \alias{countfactor}
-\title{count factor levels}
+\title{countfactor}
 \usage{
 countfactor(data, var, varlabel)
 }

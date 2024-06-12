@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_tab3_filter_utils_apply.R
 \name{apply_slide_filter}
 \alias{apply_slide_filter}
-\title{Applying filters to numeric variable based on the slider inputs}
+\title{apply_slide_filter}
 \usage{
 apply_slide_filter(df, col, vals)
 }

@@ -19,7 +19,7 @@ plotly_histogram_grouped(df, var, groupvar, varlabel, grouplabel)
 A plotly histogram compare a numeric variable between groups.
 }
 \description{
-A standardised function to generate a grouped histogram
+A standardised function to generate a grouped histogram with three display options.
 }
 \examples{
 group_his_df <- data.frame(numvar = rep(1: 20, 5), fctvar = as.factor(c(rep(c("A", "B", "C"), 30), rep("A", 10))))

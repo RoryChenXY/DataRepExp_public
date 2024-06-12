@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_tab3_filter_utils_inputs.R
 \name{ynm_inputs}
 \alias{ynm_inputs}
-\title{Check Box Group Input with only No/Yes/Missing Options}
+\title{ynm_inputs}
 \usage{
 ynm_inputs(inputId, label)
 }

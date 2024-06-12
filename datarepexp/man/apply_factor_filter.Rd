@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_tab3_filter_utils_apply.R
 \name{apply_factor_filter}
 \alias{apply_factor_filter}
-\title{Applying filters to factor variable}
+\title{apply_factor_filter}
 \usage{
 apply_factor_filter(df, col, vals)
 }
