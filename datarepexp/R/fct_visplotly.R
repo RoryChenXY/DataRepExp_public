@@ -101,7 +101,7 @@ plotly_bar_multifct <- function(data){
 
 #' @title plotly_histogram_grouped
 #'
-#' @description A standardised function to generate a grouped histogram
+#' @description A standardised function to generate a grouped histogram with three display options.
 #'
 #' @param df A data frame to be processed
 #' @param var A numeric variable to generate histogram
@@ -139,7 +139,8 @@ plotly_histogram_grouped <- function(df, var, groupvar, varlabel, grouplabel){
                                              '<br>Counts: %{y}<br>')
   ) %>%
     plotly::add_histogram() %>%
-    plotly::layout(xaxis  = list(title = varlabel),
+    plotly::layout(title  = paste0("<br>Histogram of ", varlabel, " by ", grouplabel),
+                   xaxis  = list(title = varlabel),
                    yaxis  = list(title = "Counts", showgrid = T),
                    legend = list(title = list(text = grouplabel), orientation = "v"),
                    updatemenus = list(
