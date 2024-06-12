@@ -116,5 +116,4 @@ load("data-raw/temp/simdata.RData")
 
 usethis::use_data(studymeta, overwrite = TRUE) # study meta data
 usethis::use_data(VAR_info, overwrite = TRUE) # Variable Information
-usethis::use_data(ppt_all, overwrite = TRUE) # participant-level data
 usethis::use_data(ppt_all_fc, overwrite = TRUE) # participant-level data, converted to factors
