@@ -15,6 +15,12 @@
 #' vlabel <- "Year of Death"
 #' vname <- selectedvar(vlabel)
 selectedvar <- function(var_label){
+
+  # Check if selected variable is in the infodf
+  if (!(var_label %in% VAR_info$LABELS)) {
+    stop("Variable information not found")
+  }
+
   temp <- VAR_info %>% dplyr::filter(LABELS == var_label)
   var_name <- temp$VARNAME
   return(var_name)
