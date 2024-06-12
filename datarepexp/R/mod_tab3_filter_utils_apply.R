@@ -1,4 +1,6 @@
-#' @title Applying filters to factor variable
+#' @title apply_factor_filter
+#'
+#' @description Applying filters to factor variable
 #'
 #' @param df A data frame
 #' @param col A column name, of the factor variable
@@ -23,7 +25,9 @@ apply_factor_filter <- function(df, col, vals) {
 }
 
 
-#' @title Applying filters to numeric variable based on the slider inputs
+#' @title apply_slide_filter
+#'
+#' @description Applying filters to numeric variable based on the slider inputs
 #'
 #' @param df A data frame
 #' @param col A column name, of the numeric variable
