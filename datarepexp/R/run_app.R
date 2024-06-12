@@ -4,9 +4,10 @@
 #' See `?golem::get_golem_options` for more details.
 #' @inheritParams shiny::shinyApp
 #'
-#' @export
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options
+#'
+#' @export
 run_app <- function(
   onStart = NULL,
   options = list(),
