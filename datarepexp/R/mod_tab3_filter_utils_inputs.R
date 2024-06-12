@@ -1,12 +1,13 @@
-#' @title Check Box Group Input with only No/Yes Options
+#' @title yn_inputs
 #'
-#' @description
-#' Create a check box group input with only No/Yes Options
+#' @description Create a check box group input with only No/Yes Options
 #'
 #' @param inputId Input ID
 #' @param label Input label
 #'
 #' @return A list of HTML elements that can be added to a UI definition.
+#'
+#' @importFrom shiny checkboxGroupInput wellPanel
 #'
 #' @examples
 #' ## Only run examples in interactive R sessions
@@ -24,8 +25,6 @@
 #' shinyApp(ui, server)
 #' }
 #'
-#' @importFrom shiny checkboxGroupInput wellPanel
-#'
 #' @export
 yn_inputs <- function(inputId, label) {
   shiny::wellPanel(
@@ -38,15 +37,16 @@ yn_inputs <- function(inputId, label) {
   )
 }
 
-#' @title Check Box Group Input with only No/Yes/Missing Options
+#' @title ynm_inputs
 #'
-#' @description
-#' Create a check box group input with only No/Yes/Missing Options
+#' @description Create a check box group input with only No/Yes/Missing Options
 #'
 #' @param inputId Input ID
 #' @param label Input label
 #'
 #' @return A list of HTML elements that can be added to a UI definition.
+#'
+#' @importFrom shiny checkboxGroupInput wellPanel
 #'
 #' @examples
 #' ## Only run examples in interactive R sessions
@@ -64,8 +64,6 @@ yn_inputs <- function(inputId, label) {
 #' shinyApp(ui, server)
 #' }
 #'
-#' @importFrom shiny checkboxGroupInput wellPanel
-#'
 #' @export
 ynm_inputs <- function(inputId, label) {
   shiny::wellPanel(
@@ -78,16 +76,19 @@ ynm_inputs <- function(inputId, label) {
   )
 }
 
-#' @title Check Box Group Input with choices of the levels of a factor variable.
+#' @title fct_inputs
 #'
-#' @description
-#' Create a check box group input with choices of the levels of a factor variable.
+#' @description Create a check box group input with choices of the levels of a factor variable.
+#'
 #' @param inputId Input ID
 #' @param label Input label
 #' @param df A data frame with the factor variable
 #' @param fctname A factor variable name
 #'
 #' @return A list of HTML elements that can be added to a UI definition.
+#'
+#' @importFrom shiny checkboxGroupInput wellPanel
+#'
 #' @examples
 #' ## Only run examples in interactive R sessions
 #' if (interactive()) {
@@ -104,9 +105,8 @@ ynm_inputs <- function(inputId, label) {
 #'
 #' shinyApp(ui, server)
 #' }
-#' @importFrom shiny checkboxGroupInput wellPanel
+#'
 #' @export
-
 fct_inputs <- function(inputId, label, df, fctname) {
 
   # Check if valid
