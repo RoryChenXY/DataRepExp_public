@@ -23,25 +23,20 @@ app_server <- function(input, output, session) {
     )
   })
 
-
-
-  tab5paq <- fluidPage(
-    h1('Preliminary Analysis Tab Contents'))
-
   ## Body############################################################################################################
   output$body <- shiny::renderUI({
-    tabItems(
+    shinydashboard::tabItems(
       ## Tab1 - Overview Tab#####################################################################
-      tabItem(tabName = "ovtab", class = "active", fluidPage(mod_tab1_statement_ui("tab1_statement_1"))),
+      shinydashboard::tabItem(tabName = "ovtab", class = "active", fluidPage(mod_tab1_statement_ui("tab1_statement_1"))),
       ## Tab2 - Summary Tab######################################################################
-      tabItem(tabName = "metatab", fluidPage(mod_tab2_meta_ui("tab2_meta_1"))),
+      shinydashboard::tabItem(tabName = "metatab", fluidPage(mod_tab2_meta_ui("tab2_meta_1"))),
       ## Tab3 - Filters Tab######################################################################
-      tabItem(tabName = "filtab", fluidPage(mod_tab3_filter_ui("tab3_filter_1", metadf = studymeta, pptdf = ppt_all_fc))),
+      shinydashboard::tabItem(tabName = "filtab", fluidPage(mod_tab3_filter_ui("tab3_filter_1", metadf = studymeta, pptdf = ppt_all_fc))),
       ## Tab4 - Visualisation Tab################################################################
-      tabItem(tabName = "vistab", fluidPage(mod_tab4_visual_ui("tab4_visual_1"))),
+      shinydashboard::tabItem(tabName = "vistab", fluidPage(mod_tab4_visual_ui("tab4_visual_1"))),
       # Tab5 - Preliminary Analysis Tab########################################################
-      tabItem(tabName = "pacate", fluidPage(mod_tab5_pac_ui("tab5_pac_1"))),
-      tabItem(tabName = "paquan", tab5paq)
+      shinydashboard::tabItem(tabName = "pacate", fluidPage(mod_tab5_pac_ui("tab5_pac_1"))),
+      shinydashboard::tabItem(tabName = "paquan", fluidPage(mod_tab5_paq_ui("tab5_paq_1")))
 
     )
   })
@@ -68,7 +63,8 @@ app_server <- function(input, output, session) {
 
   mod_tab4_visual_server("tab4_visual_1", metadf = studymeta, react_df = filteredppt)
 
-  mod_tab5_pac_server("tab5_pac_1",  react_df = filteredppt)
+  mod_tab5_pac_server("tab5_pac_1", react_df = filteredppt)
 
+  mod_tab5_paq_server("tab5_paq_1", react_df = filteredppt)
 
 }
