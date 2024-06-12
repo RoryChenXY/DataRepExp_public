@@ -24,7 +24,6 @@ test_that("plotly_pie generate a plotly pie chart", {
   expect_error(plotly_pie(fctvar, fctvar))
 })
 
-
 test_that("plotly_bar_multifct generate a plotly bar chart", {
 
   bar_multifct_df <- data.frame(var_label = c("AA", "AA", "BB", "BB", "CC","CC", "DD", "DD"),
@@ -55,7 +54,7 @@ test_that("plotly_histogram_grouped generate a grouped plotly histogram", {
   group_his_df <- data.frame(numvar = rep(1: 20, 5),
                              fctvar = as.factor(c(rep(c("A", "B", "C"), 30), rep("A", 10))))
 
-  p <- plotly_histogram_grouped(df = group_his_df, var = "numvar", groupvar = "fctvar", label = "Groups")
+  p <- plotly_histogram_grouped(df = group_his_df, var = "numvar", varlabel = "Numbers", grouplabel = "Groups")
 
   expect_s3_class(p, "plotly") # check p is a plotly object
 
@@ -66,6 +65,5 @@ test_that("plotly_histogram_grouped generate a grouped plotly histogram", {
 
   # check error
   df_error <- as.matrix(group_his_df)
-  expect_error(plotly_histogram_grouped(df_error, var = "numvar", groupvar = "fctvar", label = "Groups"))
+  expect_error(plotly_histogram_grouped(df = df_error, var = "numvar", groupvar = "fctvar", varlabel = "Numbers", grouplabel = "Groups"))
 })
-
