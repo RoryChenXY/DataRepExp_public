@@ -30,6 +30,33 @@ golem::fill_desc(
   pkg_version = "0.0.0.9000" # The Version of the package containing the App
 )
 
+## Set Dependencies in the DESCRIPTION
+usethis::use_package("R", type = "Depends", min_version = TRUE)
+usethis::use_package("shiny", type = "Depends", min_version = TRUE)
+
+## Use functions to add a list of pkgs to DESCRIPTION
+pkglist1 <- list("config",
+                 "golem",
+                 "dplyr",
+                 "magrittr",
+                 "purrr",
+                 "rlang",
+                 "tidyr",
+                 "useful" ,
+                 "shinydashboard",
+                 "shinyWidgets",
+                 "shinyjs",
+                 "DT",
+                 "ggplot2",
+                 "plotly",
+                 "scales",
+                 "collapse",
+                 "forcats",
+                 "grDevices",
+                 "RColorBrewer",
+                 "testthat")
+purrr::modify(pkglist1, ~usethis::use_package(.x, type = "Imports", min_version = TRUE))
+
 ## Set {golem} options ----
 golem::set_golem_options()
 
@@ -60,8 +87,8 @@ golem::use_favicon() # path = "path/to/ico". Can be an online file.
 #golem::remove_favicon() # Uncomment to remove the default favicon
 
 ## Add helper functions ----
-golem::use_utils_ui(with_test = TRUE)
-golem::use_utils_server(with_test = TRUE)
+#golem::use_utils_ui(with_test = TRUE)
+#golem::use_utils_server(with_test = TRUE)
 
 # You're now set! ----
 
