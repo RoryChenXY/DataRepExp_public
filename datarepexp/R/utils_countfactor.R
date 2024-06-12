@@ -1,4 +1,4 @@
-#' count factor levels
+#' @title countfactor
 #'
 #' @description A utils function that counts by the levels of a factor variable
 #'
