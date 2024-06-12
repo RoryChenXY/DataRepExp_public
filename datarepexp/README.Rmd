@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Codecov test coverage](https://codecov.io/gh/RoryChenXY/DataRepExp_public/branch/main/graph/badge.svg)](https://app.codecov.io/gh/RoryChenXY/DataRepExp_public?branch=main)
 <!-- badges: end -->
 
 The goal of datarepexp is to ...
@@ -27,7 +28,7 @@ You can install the development version of datarepexp from [GitHub](https://gith
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("RoryChenXY/DataRepExp_public")
+devtools::install_github("RoryChenXY/DataRepExp_public/datarepexp")
 ```
 
 ## Example
