@@ -4,9 +4,35 @@
 # datarepexp
 
 <!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Codecov test
+coverage](https://codecov.io/gh/RoryChenXY/DataRepExp_public/branch/main/graph/badge.svg)](https://app.codecov.io/gh/RoryChenXY/DataRepExp_public?branch=main)
 <!-- badges: end -->
 
-The goal of datarepexp is to …
+[datarepexp](https://github.com/RoryChenXY/DataRepExp_public/datarepexp),
+is an open-source R Shiny application and an R package built using the
+[golem](https://github.com/ThinkR-open/golem) framework.
+
+Data Repository Explorer is developed to improve the findability,
+accessibility, interoperability, and reusability (FAIR) of research data
+held in a data repository.
+
+The application displays standardised metadata across multiple studies
+including data availability by categories (such as demographics, medical
+history, imaging data and genomic data) to allow high-level comparison.
+It enables users to explore and run preliminary analysis from
+participants that match certain criteria. In addition, it provides
+features to export reports and aggregated results for data access
+application purposes. The application was initially developed for a
+discipline-specific data-sharing platform, the Dementias Platform
+Australia (DPAU). Envisioning this work could be utilized by other data
+repositories in diverse disciplines, this demo application was created
+using simulated health-related data for demonstration purposes.
+
+It can be modified and utilized by other data repositories by adopting
+the discipline-specific metadata schema and common variables.
 
 ## Installation
 
@@ -15,38 +41,17 @@ You can install the development version of datarepexp from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("RoryChenXY/DataRepExp_public")
+devtools::install_github("RoryChenXY/DataRepExp_public/", subdir="datarepexp")
 ```
 
-## Example
+## Demo
 
-This is a basic example which shows you how to solve a common problem:
+The demo app is deployed on shinyapps.io:
+<https://rorychenxy.shinyapps.io/repexp/>
+
+To run the dev version of this app locally:
 
 ``` r
 library(datarepexp)
-## basic example code
+datarepexp::repexp_app()
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
