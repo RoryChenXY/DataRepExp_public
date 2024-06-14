@@ -794,3 +794,301 @@ test_that("{shinytest2} recording: datarepexp", {
   app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE,
       priority_ = "event")
 })
+
+
+test_that("{shinytest2} recording: filter_Asia_male_smoker", {
+  app <- AppDriver$new(name = "filter_Asia_male_smoker", height = 945, width = 1619)
+  app$set_inputs(`tab3_filter_1-study` = c("AUOECAFAOINV", "LIDSAMEVDAISNE", "PVNI", 
+      "SRESSBAVG", "SSEVALCCASCE", "FVNMAMTINP", "ITOVJD", "RDVCUNISPDS", "VEEIIEN", 
+      "VMEATST", "APDLAIA", "ENAH", "FISAGPUSLVF", "PMMERMICI", "STISHV", "ASVA", 
+      "MTOVFMAISV", "PNDEPPIEVEMMISEUFPLUEPNRE", "RILITARLPNELAHSHSTA", "VVSACNACVJDL", 
+      "DPEVMV", "INVNESN", "NAVNMCIFMNNUF", "PARNVF", "UENUFUEVE", "APTIFNID", "ASPAPLMEVDAISNE", 
+      "ESMEMVCOSDSSEDS", "INA", "SAASVEANANESS"))
+  app$set_inputs(`tab3_filter_1-continent` = c("Africa", "Asia", "Europe", "North America", 
+      "Oceania", "South America"))
+  app$set_inputs(`tab5_pac_1-ycate` = "Disease Diagnosis 1")
+  app$set_inputs(`tab5_pac_1-cx2c` = "Alcohol Use Status")
+  app$set_inputs(`tab5_paq_1-qx2c` = "Alcohol Use Status")
+  app$set_inputs(`tab5_paq_1-qx3c` = "Deceased")
+  app$set_inputs(`tab3_filter_1-filtertabs` = "Study Filters")
+  app$set_inputs(`tab4_visual_1-visaultabs` = "Metadata")
+  app$set_inputs(`tab5_pac_1-pactabs` = "Univariate")
+  app$set_inputs(`tab5_paq_1-paqtabs` = "Univariate")
+  app$click("tab2_meta_1-clearmeta")
+  app$click("tab2_meta_1-clearava")
+  app$click("tab3_filter_1-resetallf")
+  app$click("tab3_filter_1-resetsf")
+  app$click("tab3_filter_1-resetpf")
+  app$set_inputs(`tab5_pac_1-cx1q` = "Scale 2")
+  app$set_inputs(`tab5_paq_1-yquan` = "Scale 4")
+  app$set_inputs(`tab5_paq_1-qx1q` = "Age at Assessment")
+  app$set_inputs(`tab3_filter_1-minage` = c(0, 110))
+  app$set_inputs(`tab3_filter_1-studysize` = c(500, 5000))
+  app$set_inputs(`tab3_filter_1-ageatass` = c(0, 110))
+  app$set_inputs(`tab3_filter_1-yod` = c(1990, 2030))
+  app$set_inputs(`tab3_filter_1-bmi` = c(10, 40))
+  app$set_inputs(`tab3_filter_1-scale1` = c(20, 40))
+  app$set_inputs(`tab3_filter_1-scale2` = c(10, 25))
+  app$set_inputs(`tab3_filter_1-scale3` = c(0, 25))
+  app$set_inputs(`tab3_filter_1-scale4` = c(1, 100))
+  app$set_inputs(`tab3_filter_1-access` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-studyfollow` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-incomegroup` = c("Low income", "Lower middle income", 
+      "Upper middle income", "High income"))
+  app$set_inputs(`tab3_filter_1-cat01` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat02` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat03` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat04` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat05` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat06` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat07` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat08` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat09` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat10` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat11` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat12` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat13` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat14` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-cat15` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-ethnicback` = c("Caucasian", "Asian", "African", 
+      "Hispanic", "Indigenous", "Mixed", "Other", "Missing"))
+  app$set_inputs(`tab3_filter_1-sex` = c("Male", "Female", "Other", "Missing"))
+  app$set_inputs(`tab3_filter_1-eduhighs` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-maristat` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-deceased` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-smokestat` = c("Never", "Ex", "Current", "Missing"))
+  app$set_inputs(`tab3_filter_1-alcstat` = c("Never", "Ex", "Current", "Missing"))
+  app$set_inputs(`tab3_filter_1-dia1` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-dia2` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-dia3` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-dia4` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-hosoup` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-hosinp` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-gp` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-famdia1` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-famdia2` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-famdia3` = c("No", "Yes", "Missing"))
+  app$set_inputs(`tab3_filter_1-mricoll` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-imgcoll1` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-imgcoll2` = c("No", "Yes"))
+  app$set_inputs(`tab3_filter_1-geno1` = c("TypeA", "TypeB", "TypeC", "TypeD", "Missing"))
+  app$set_inputs(`tab3_filter_1-geno2` = c("G1", "G2", "G3", "G4", "G5", "G6", "G7", 
+      "G8", "G9", "Missing"))
+  app$set_inputs(`tab3_filter_1-agemiss` = TRUE)
+  app$set_inputs(`tab3_filter_1-yodmiss` = TRUE)
+  app$set_inputs(`tab3_filter_1-bmimiss` = TRUE)
+  app$set_inputs(`tab3_filter_1-s1miss` = TRUE)
+  app$set_inputs(`tab3_filter_1-s2miss` = TRUE)
+  app$set_inputs(`tab3_filter_1-s3miss` = TRUE)
+  app$set_inputs(`tab3_filter_1-s4miss` = TRUE)
+  app$expect_values()
+  app$set_inputs(`tab3_filter_1-continent_open` = TRUE, allow_no_input_binding_ = TRUE)
+  app$set_inputs(`tab3_filter_1-continent` = character(0))
+  app$set_inputs(`tab3_filter_1-continent` = "Asia")
+  app$set_inputs(`tab3_filter_1-continent_open` = FALSE, allow_no_input_binding_ = TRUE)
+  app$set_inputs(`tab3_filter_1-filtertabs` = "Participant Filters")
+  app$set_inputs(`tab3_filter_1-sex` = c("Male", "Female", "Missing"))
+  app$set_inputs(`tab3_filter_1-sex` = c("Male", "Female"))
+  app$set_inputs(`tab3_filter_1-sex` = "Male")
+  app$set_inputs(`tab3_filter_1-smokestat` = c("Ex", "Current", "Missing"))
+  app$set_inputs(`tab3_filter_1-smokestat` = c("Current", "Missing"))
+  app$set_inputs(`tab3_filter_1-smokestat` = "Current")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-minagebar\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-sizebar\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-avapie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-fupie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-contpie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-incomepie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-avacatA\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-avacatB\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-avacatC\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":611,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":611,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":397.328125,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":397.328125,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":397.328125,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-minagebar\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-sizebar\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-avapie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-fupie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-contpie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-incomepie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-avacatA\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-avacatB\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-avacatC\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":611,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":611,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":397.328125,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":397.328125,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":397.328125,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`tab4_visual_1-visaultabs` = "Demographics")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-ethpie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"hiddenlabels\":[\"Asian\"]}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"pointNumber\":7,\"x\":7.6625,\"y\":811}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-agebygender\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-ethpie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-sexpie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-edupie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-marrypie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-deathpie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":611,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":611,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"width\":290.5,\"height\":400}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`tab4_visual_1-visaultabs` = "Lifestyle")
+  app$set_inputs(`tab4_visual_1-visaultabs` = "Scales")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-s1his\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"barmode\":\"overlay\"}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`tab4_visual_1-visaultabs` = "Health and Family History")
+  app$set_inputs(`tab4_visual_1-visaultabs` = "Imaging and Genomic Data")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"pointNumber\":0}]", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"pointNumber\":1}]", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"pointNumber\":3}]", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"pointNumber\":4}]", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-geno1pie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"hiddenlabels\":[\"Missing\"]}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-geno1pie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"hiddenlabels\":[]}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-geno1pie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"hiddenlabels\":[\"Missing\"]}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab4_visual_1-geno2pie\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_relayout-A` = "{\"hiddenlabels\":[\"Missing\"]}", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"No\",\"y\":2237}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`tab5_pac_1-cx2c_open` = TRUE, allow_no_input_binding_ = TRUE)
+  app$set_inputs(`tab5_pac_1-cx2c` = "Deceased")
+  app$set_inputs(`tab5_pac_1-cx2c_open` = FALSE, allow_no_input_binding_ = TRUE)
+  app$set_inputs(`tab5_pac_1-pactabs` = "Y~X2")
+  app$set_inputs(`plotly_afterplot-A` = "\"tab5_pac_1-cyx2bar\"", allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"No\",\"y\":1193}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`tab5_pac_1-pactabs` = "Y~X1")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":22},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":39},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":33},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":46},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":16},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":95},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":43.62373324615888},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":65}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`tab5_paq_1-qx3c_open` = TRUE, allow_no_input_binding_ = TRUE)
+  app$set_inputs(`tab5_paq_1-qx3c` = "Disease Diagnosis 4")
+  app$set_inputs(`tab5_paq_1-qx3c_open` = FALSE, allow_no_input_binding_ = TRUE)
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"x\":34.5,\"y\":226}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":22},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":39},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":33},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":46},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":16},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":95},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":43.62373324615888},{\"curveNumber\":0,\"pointNumber\":0,\"x\":\"Scale 4\",\"y\":65}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`tab5_paq_1-paqtabs` = "Y~X2+X3")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":25},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":22},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":28.25},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":18},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":55},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":33}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":11,\"pointNumber\":134,\"x\":1,\"y\":47}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":25},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":22},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":28.25},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":18},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":55},{\"curveNumber\":11,\"pointNumber\":0,\"x\":1,\"y\":33}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":14,\"pointNumber\":0,\"x\":2,\"y\":33},{\"curveNumber\":14,\"pointNumber\":0,\"x\":2,\"y\":30},{\"curveNumber\":14,\"pointNumber\":0,\"x\":2,\"y\":61},{\"curveNumber\":14,\"pointNumber\":0,\"x\":2,\"y\":25},{\"curveNumber\":14,\"pointNumber\":0,\"x\":2,\"y\":69}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = "[{\"curveNumber\":8,\"pointNumber\":880,\"x\":3.1513352907132828,\"y\":45.630136986301366}]", 
+      allow_no_input_binding_ = TRUE, priority_ = "event")
+  app$set_inputs(`plotly_hover-A` = character(0), allow_no_input_binding_ = TRUE, 
+      priority_ = "event")
+})
