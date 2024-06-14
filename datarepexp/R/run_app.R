@@ -8,7 +8,7 @@
 #' @importFrom golem with_golem_options
 #'
 #' @export
-run_app <- function(
+repexp_app <- function(
   onStart = NULL,
   options = list(),
   enableBookmarking = NULL,
