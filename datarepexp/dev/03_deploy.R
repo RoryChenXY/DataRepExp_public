@@ -25,6 +25,9 @@ rhub::check_for_cran()
 ## sent to CRAN, or to a package manager
 devtools::build()
 
+# Download from Github
+# devtools::install_github("RoryChenXY/DataRepExp_public/", subdir="datarepexp")
+
 ## RStudio ----
 ## If you want to deploy on RStudio related platforms
 #golem::add_rstudioconnect_file()
@@ -37,7 +40,6 @@ golem::add_dockerfile_with_renv()
 
 ## If you want to deploy to ShinyProxy
 golem::add_dockerfile_with_renv_shinyproxy()
-
 
 # Deploy to Posit Connect or ShinyApps.io
 # In command line.
