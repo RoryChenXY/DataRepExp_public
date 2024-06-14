@@ -59,6 +59,29 @@ usethis::use_data_raw(name = "03_data_prepare", open = FALSE)
 usethis::use_test("app")
 
 # Documentation
+## Use functions to add a list of pkgs to DESCRIPTION
+pkglist1 <- list("config",
+                 "golem",
+                 "dplyr",
+                 "magrittr",
+                 "purrr",
+                 "rlang",
+                 "tidyr",
+                 "useful" ,
+                 "shinydashboard",
+                 "shinyWidgets",
+                 "shinyjs",
+                 "DT",
+                 "ggplot2",
+                 "plotly",
+                 "scales",
+                 "collapse",
+                 "forcats",
+                 "grDevices",
+                 "RColorBrewer",
+                 "testthat")
+purrr::modify(pkglist1, ~usethis::use_package(.x, type = "Imports", min_version = TRUE))
+
 
 ## Vignette ----
 usethis::use_vignette("datarepexp")
@@ -67,8 +90,10 @@ devtools::build_vignettes()
 ## Code Coverage----
 ## Set the code coverage service ("codecov" or "coveralls")
 usethis::use_coverage()
+covr::package_coverage()
 
 # Create a summary readme for the testthat subdirectory
+remotes::install_github('yonicd/covrpage')
 covrpage::covrpage()
 
 ## CI ----
