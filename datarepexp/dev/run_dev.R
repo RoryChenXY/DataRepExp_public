@@ -12,4 +12,4 @@ golem::detach_all_attached()
 golem::document_and_reload()
 
 # Run the application
-datarepexp::run_app()
+datarepexp::repexp_app()
