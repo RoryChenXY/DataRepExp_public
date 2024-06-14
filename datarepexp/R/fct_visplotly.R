@@ -128,7 +128,7 @@ plotly_histogram_grouped <- function(df, var, groupvar, varlabel, grouplabel){
   }
 
   enquov <- rlang::enquo(var)
-  data <- df %>% tidyr::drop_na(!!enquov)
+  data <- df %>% tidyr::drop_na(all_of(!!enquov))
 
   p <- plotly::plot_ly(data = data,
                        x = ~.data[[var]],
