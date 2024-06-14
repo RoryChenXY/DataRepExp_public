@@ -34,29 +34,6 @@ golem::fill_desc(
 usethis::use_package("R", type = "Depends", min_version = TRUE)
 usethis::use_package("shiny", type = "Depends", min_version = TRUE)
 
-## Use functions to add a list of pkgs to DESCRIPTION
-pkglist1 <- list("config",
-                 "golem",
-                 "dplyr",
-                 "magrittr",
-                 "purrr",
-                 "rlang",
-                 "tidyr",
-                 "useful" ,
-                 "shinydashboard",
-                 "shinyWidgets",
-                 "shinyjs",
-                 "DT",
-                 "ggplot2",
-                 "plotly",
-                 "scales",
-                 "collapse",
-                 "forcats",
-                 "grDevices",
-                 "RColorBrewer",
-                 "testthat")
-purrr::modify(pkglist1, ~usethis::use_package(.x, type = "Imports", min_version = TRUE))
-
 ## Set {golem} options ----
 golem::set_golem_options()
 
