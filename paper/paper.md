@@ -122,8 +122,13 @@ The features can be easily further expanded with loose coupling module design.
 Elevated user experience with integrative charts and figures, which include functions such as sort, filter, zoom, select, adjust axis, hover for information, reset, etc.
 
 
-# Acknowledgements
+# Acknowledgement
+
 This application was inspired by the visualisation tool developed by DPUK [@bauermeister2020dementias] using PowerBI, then developed in R [@R-Base] for the DPAU [@DPAU]. We acknowledge the generous sharing of best practices and knowledge from DPUK.
+
+# Declaration of Co-authorship
+
+SB, JB, ES, ST and JG established DPUK [@bauermeister2020dementias], conceived DPUK’s Cohort Explorer, and developed the C-Surv [@bauermeister2023ready] standard data model optimised for data discovery for use with research cohort data. These DPUK tools inspired RC’s conception of the presented R-Shiny Data Repository Explorer, with input from all authors along the development process. RC developed the script. AV conducted the code review for the scripts. JCSJ provided input into the draft script and notes. VSC provided input into the user interface and presentation layout. RC led the manuscript writing. PSS obtained research funding for the DPAU team. All authors provided feedback and approved the final manuscript. 
 
 # Funding
 
