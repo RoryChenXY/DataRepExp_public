@@ -41,7 +41,7 @@ You can install the development version of datarepexp from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("RoryChenXY/DataRepExp_public/", subdir="datarepexp")
+devtools::install_github("RoryChenXY/DataRepExp_public", subdir="datarepexp")
 ```
 
 ## Demo
