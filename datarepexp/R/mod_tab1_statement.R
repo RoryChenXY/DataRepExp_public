@@ -6,11 +6,13 @@
 #'
 #' @noRd
 #'
-#' @importFrom shiny NS tagList
+#' @importFrom shiny NS tagList htmlOutput renderUI
+#' @importFrom desc desc_get_version
 mod_tab1_statement_ui <- function(id){
   ns <- NS(id)
   tagList(
     h1('Data Visualisation Tool for Data Repositories.'),
+    h2(shiny::htmlOutput(NS(id, 'version_n'))),
     h2('This R-shiny app was developed to improve the findability, accessibility, interoperability and reusability (FAIR) of research data.
       Data custodians can display the availability of data categories across multiple research studies.
       The app enables researchers to explore and visualise data from participants that
@@ -28,6 +30,11 @@ mod_tab1_statement_ui <- function(id){
 mod_tab1_statement_server <- function(id){
   moduleServer(id, function(input, output, session){
     ns <- session$ns
+
+    output$version_n <- shiny::renderUI({ # Number of Studies
+      HTML(paste("Current Version:", desc::desc_get_version(), sep = " "))
+    })
+
   })
 }
 
