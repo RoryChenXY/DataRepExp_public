@@ -53,20 +53,6 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
   moduleServer(id, function(input, output, session){
     ns <- session$ns
 
-    # DT table option
-    dtoptions1 <- list(
-      searching = TRUE,
-      scrollX = TRUE,
-      dom = 'Bfrtip',
-      buttons = list('pageLength',
-                     list(
-                       extend = 'colvis',
-                       columns = ":gt(0)"),
-                     'colvisRestore',
-                     'csv',
-                     'print')
-    )
-
     ## Summary Stats ####################################################
     output$nstudy <- shiny::renderUI({ # Number of Studies
       HTML(paste("Number of Studies:", nrow(metadf), sep = " "))
@@ -94,7 +80,21 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
                     colnames = var_label$LABELS,
                     rownames = FALSE,
                     extensions = 'Buttons',
-                    options = dtoptions1
+                    options = list(
+                      searching = TRUE,
+                      scrollX = TRUE,
+                      dom = 'Bfrtip',
+                      buttons = list('pageLength',
+                                     list(
+                                       extend = 'colvis',
+                                       columns = ":gt(0)"),
+                                     'colvisRestore',
+                                     list(
+                                       extend = 'csv',
+                                       title = 'metadata'
+                                     ),
+                                     'print')
+                    )
       )
     })
     metaproxy <- DT::dataTableProxy("metatb") # Proxy of the DT table
@@ -111,7 +111,21 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
                     colnames = var_label$LABELS,
                     rownames = FALSE,
                     extensions = 'Buttons',
-                    options = dtoptions1
+                    options = list(
+                      searching = TRUE,
+                      scrollX = TRUE,
+                      dom = 'Bfrtip',
+                      buttons = list('pageLength',
+                                     list(
+                                       extend = 'colvis',
+                                       columns = ":gt(0)"),
+                                     'colvisRestore',
+                                     list(
+                                       extend = 'csv',
+                                       title = 'data_availability'
+                                     ),
+                                     'print')
+                    )
       )
     })
     avaproxy <- DT::dataTableProxy("studyava") # Proxy of the DT table
