@@ -333,7 +333,10 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
                        extend = 'colvis',
                        columns = ":gt(0)"),
                      'colvisRestore',
-                     'csv',
+                     list(
+                       extend = 'csv',
+                       title = 'Metadata'
+                     ),
                      'copy',
                      'print')
     )
@@ -537,8 +540,24 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
       DT::datatable(dfx,
                     colnames = c('Filters', 'Types', 'Selected', 'Default'),
                     rownames = FALSE,
-                    options = dtoptions2,
-                    extensions = 'Buttons')
+                    extensions = 'Buttons',
+                    options = list(
+                      searching = FALSE,
+                      scrollX = TRUE,
+                      dom = 'Bfrtip',
+                      buttons = list('pageLength',
+                                     list(
+                                       extend = 'colvis',
+                                       columns = ":gt(0)"),
+                                     'colvisRestore',
+                                     list(
+                                       extend = 'csv',
+                                       title = 'filter_selected'
+                                     ),
+                                     'copy',
+                                     'print')
+                    )
+                    )
     })
 
     # Filtered Studies metadata
@@ -557,8 +576,24 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
       DT::datatable(f_study_meta,
                     colnames = var_label,
                     rownames = FALSE,
-                    options = dtoptions2,
-                    extensions = 'Buttons')
+                    extensions = 'Buttons',
+                    options = list(
+                      searching = FALSE,
+                      scrollX = TRUE,
+                      dom = 'Bfrtip',
+                      buttons = list('pageLength',
+                                     list(
+                                       extend = 'colvis',
+                                       columns = ":gt(0)"),
+                                     'colvisRestore',
+                                     list(
+                                       extend = 'csv',
+                                       title = 'metadata_filtered'
+                                     ),
+                                     'copy',
+                                     'print')
+                    )
+                    )
 
     })
 
@@ -580,8 +615,24 @@ mod_tab3_filter_server <- function(id, metadf, pptdf, infodf) {
       DT::datatable(f_study_ava,
                     colnames = var_label,
                     rownames = FALSE,
-                    options = dtoptions2,
-                    extensions = 'Buttons')
+                    extensions = 'Buttons',
+                    options = list(
+                      searching = FALSE,
+                      scrollX = TRUE,
+                      dom = 'Bfrtip',
+                      buttons = list('pageLength',
+                                     list(
+                                       extend = 'colvis',
+                                       columns = ":gt(0)"),
+                                     'colvisRestore',
+                                     list(
+                                       extend = 'csv',
+                                       title = 'data_ava_filtered'
+                                     ),
+                                     'copy',
+                                     'print')
+                    )
+                    )
 
     })
 
