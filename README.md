@@ -11,8 +11,21 @@ This demo application was created using simulated health-related data for demons
 -   Contact: [xinyue.chen1\@unsw.edu.au](mailto:%20xinyue.chen1@unsw.edu.au) / [rory.chen.xy\@gmail.com](mailto:%20rory.chen.xy@gmail.com)
 -   Paper: [paper.md](/paper/paper.md)
 
-## How to navigate the application
+## Deployment
 
+To run the demo app locally, please use the following syntax:
+
+```
+
+devtools::install_github("RoryChenXY/DataRepExp_public", subdir="datarepexp")
+
+library(datarepexp)
+
+datarepexp::repexp_app()
+
+```
+
+## How to navigate the application
 The side menu allows you to switch between tabs, and the menu icon on the top allows you to collapse and expand the menu.
 
 ![Side Menu](/www/sidemenu.png)
