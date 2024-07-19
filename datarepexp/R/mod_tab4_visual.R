@@ -105,7 +105,7 @@ mod_tab4_visual_server <- function(id, metadf, react_df){
         dplyr::summarize(Count = dplyr::n(), .groups = "keep") %>%
         dplyr::ungroup() %>%
         dplyr::group_by(MINAGECat) %>%
-        dplyr::summarize(Count = sum(Count), Study = paste(unique(STUDY), collapse = ", "), .groups = "keep") %>%
+        dplyr::summarize(Count = sum(Count), Study = paste(unique(STUDY), collapse = "\n"), .groups = "keep") %>%
         dplyr::ungroup() %>%
         tidyr::complete(MINAGECat, fill = list(Count = 0, Study = NA_character_))
 
@@ -137,7 +137,7 @@ mod_tab4_visual_server <- function(id, metadf, react_df){
         dplyr::summarize(Count = dplyr::n(), .groups = "keep") %>%
         dplyr::ungroup() %>%
         dplyr::group_by(SIZEcat) %>%
-        dplyr::summarize(Count = sum(Count), Study = paste(unique(STUDY), collapse = ", "), .groups = "keep") %>%
+        dplyr::summarize(Count = sum(Count), Study = paste(unique(STUDY), collapse = "\n"), .groups = "keep") %>%
         dplyr::ungroup() %>%
         tidyr::complete(SIZEcat, fill = list(Count = 0, Study = NA_character_))
 
