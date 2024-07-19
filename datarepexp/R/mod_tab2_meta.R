@@ -7,7 +7,7 @@
 #' @noRd
 #'
 #' @rawNamespace import(shiny, except=c(dataTableOutput, renderDataTable))
-#' @importFrom dplyr select filter arrange
+#' @importFrom dplyr select filter arrange relocate mutate_if
 #' @importFrom magrittr %>%
 #' @importFrom DT renderDT DTOutput datatable dataTableProxy clearSearch
 mod_tab2_meta_ui <- function(id){
@@ -77,13 +77,20 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
 
     ## Common metadata table#############################################
     output$metatb <- DT::renderDT({ #DT table
-      temp1 <- metadf[, 1:9]
+      temp1 <- metadf[, 1:9] %>%
+        dplyr::relocate(where(is.numeric), .after = FULLNAME) %>%
+        dplyr::mutate_if(is.numeric, as.integer)
       var_label <- infodf %>%
         dplyr::filter(VARNAME %in% colnames(temp1)) %>%
         dplyr::arrange(match(VARNAME, colnames(temp1)))
 
       DT::datatable(temp1,
-                    filter = "top",
+                    filter = list(
+                      position = 'top',
+                      settings = list(
+                        slider = list(orientation = 'vertical')
+                      )
+                    ),
                     colnames = var_label$LABELS,
                     rownames = FALSE,
                     extensions = 'Buttons',
@@ -100,7 +107,7 @@ mod_tab2_meta_server <- function(id, metadf, infodf){
         dplyr::filter(VARNAME %in% colnames(temp2)) %>%
         dplyr::arrange(match(VARNAME, colnames(temp2)))
       DT::datatable(temp2,
-                    filter = "top",
+                    filter = 'top',
                     colnames = var_label$LABELS,
                     rownames = FALSE,
                     extensions = 'Buttons',
@@ -136,3 +143,4 @@ mod_tab2_meta_app <- function() {
 
   shinyApp(ui, server)
 }
+
