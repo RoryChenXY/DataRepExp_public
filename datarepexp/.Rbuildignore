@@ -4,7 +4,7 @@
 ^\.Rproj\.user$
 ^data-raw$
 dev_history.R
-^dev$
+^dev
 $run_dev.*
 ^.here$
 ^LICENSE\.md$
