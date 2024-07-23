@@ -79,7 +79,8 @@ pkglist1 <- list("config",
                  "forcats",
                  "grDevices",
                  "RColorBrewer",
-                 "testthat")
+                 "desc")
+
 purrr::modify(pkglist1, ~usethis::use_package(.x, type = "Imports", min_version = TRUE))
 
 
@@ -93,7 +94,7 @@ usethis::use_coverage()
 covr::package_coverage()
 
 # Create a summary readme for the testthat subdirectory
-remotes::install_github('yonicd/covrpage')
+# remotes::install_github('yonicd/covrpage')
 covrpage::covrpage()
 
 ## CI ----
