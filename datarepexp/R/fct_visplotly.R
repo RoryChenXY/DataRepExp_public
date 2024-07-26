@@ -21,7 +21,7 @@
 plotly_pie <- function(data, var){
 
   # Check if Data is a data.frame
-  if (class(data) != "data.frame") {
+  if (!inherits(data, "data.frame")) {
     stop("Expecting a data frame")
   }
 
@@ -118,12 +118,17 @@ plotly_bar_multifct <- function(data){
 #' @export
 #'
 #' @examples
-#' group_his_df <- data.frame(numvar = rep(1: 20, 5), fctvar = as.factor(c(rep(c("A", "B", "C"), 30), rep("A", 10))))
-#' plotly_histogram_grouped(df = group_his_df, var = "numvar", groupvar = "fctvar", varlabel = "Numbers", grouplabel = "Groups")
+#' group_his_df <- data.frame(numvar = rep(1: 20, 5),
+#'                            fctvar = as.factor(c(rep(c("A", "B", "C"), 30), rep("A", 10))))
+#' plotly_histogram_grouped(df = group_his_df,
+#'                          var = "numvar",
+#'                          groupvar = "fctvar",
+#'                          varlabel = "Numbers",
+#'                          grouplabel = "Groups")
 #'
 plotly_histogram_grouped <- function(df, var, groupvar, varlabel, grouplabel){
 
-  if (class(df) != "data.frame") {
+  if (!inherits(df, "data.frame")) {
     stop("Expecting a data frame")
   }
 
