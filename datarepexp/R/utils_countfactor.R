@@ -20,7 +20,7 @@
 countfactor <- function(data, var, varlabel){
 
   # Check if Data is a data.frame
-  if (class(data) != 'data.frame') {
+  if (!inherits(data, "data.frame")) {
     stop("Expecting a data frame")
   }
 
