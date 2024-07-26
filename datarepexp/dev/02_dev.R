@@ -79,7 +79,7 @@ pkglist1 <- list("config",
                  "forcats",
                  "grDevices",
                  "RColorBrewer",
-                 "desc")
+                 "stats")
 
 purrr::modify(pkglist1, ~usethis::use_package(.x, type = "Imports", min_version = TRUE))
 
