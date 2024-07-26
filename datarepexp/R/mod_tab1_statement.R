@@ -7,7 +7,7 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList htmlOutput renderUI
-#' @importFrom desc desc_get_version
+#'
 mod_tab1_statement_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -32,7 +32,7 @@ mod_tab1_statement_server <- function(id){
     ns <- session$ns
 
     output$version_n <- shiny::renderUI({ # Number of Studies
-      HTML(paste("Current Version:", desc::desc_get_version(), sep = " "))
+      HTML(paste("Current Version:", "0.0.1", sep = " "))
     })
 
   })
