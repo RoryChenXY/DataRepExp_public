@@ -11,6 +11,7 @@
 #' @importFrom shinyWidgets pickerInput
 #' @importFrom magrittr %>%
 #' @importFrom dplyr count mutate group_by summarise
+#' @importFrom stats IQR lm quantile sd
 #' @importFrom collapse fmin fmax
 #' @importFrom tidyr drop_na pivot_wider
 #' @importFrom RColorBrewer brewer.pal
@@ -148,9 +149,9 @@ mod_tab5_paq_server <- function(id, react_df){
           SampleSize = n(),
           NACount = sum(is.na(get(yqvar))),
           Mean = mean(get(yqvar), na.rm = TRUE),
-          SD = sd(get(yqvar), na.rm = TRUE),
-          Medium = quantile(get(yqvar), 0.5, na.rm = TRUE),
-          IQR = IQR(get(yqvar), na.rm = TRUE),
+          SD = stats::sd(get(yqvar), na.rm = TRUE),
+          Medium = stats::quantile(get(yqvar), 0.5, na.rm = TRUE),
+          IQR = stats::IQR(get(yqvar), na.rm = TRUE),
           Min = min(get(yqvar), na.rm = TRUE),
           Max = max(get(yqvar), na.rm = TRUE)
         )
@@ -414,9 +415,9 @@ mod_tab5_paq_server <- function(id, react_df){
           SampleSize = n(),
           NACount = sum(is.na(get(yqvar))),
           Mean = mean(get(yqvar), na.rm = TRUE),
-          SD = sd(get(yqvar), na.rm = TRUE),
-          Medium = quantile(get(yqvar), 0.5, na.rm = TRUE),
-          IQR = IQR(get(yqvar), na.rm = TRUE),
+          SD = stats::sd(get(yqvar), na.rm = TRUE),
+          Medium = stats::quantile(get(yqvar), 0.5, na.rm = TRUE),
+          IQR = stats::IQR(get(yqvar), na.rm = TRUE),
           Min = collapse::fmin(get(yqvar)),
           Max = collapse::fmax(get(yqvar))
         )
