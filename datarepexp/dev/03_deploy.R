@@ -25,8 +25,6 @@ rhub::check_for_cran()
 ## sent to CRAN, or to a package manager
 devtools::build()
 
-# Download from Github
-# devtools::install_github("RoryChenXY/DataRepExp_public/", subdir="datarepexp")
 
 ## RStudio ----
 ## If you want to deploy on RStudio related platforms
