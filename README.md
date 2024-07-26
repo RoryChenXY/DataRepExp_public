@@ -53,7 +53,7 @@ All plots can be downloaded. They have interactive features such as zoom, select
 ## Deployment Notes
 
 To make modifications to the applications for your purposes, R and Shiny programming skill is required.
-1. The application requires both study-level metadata, and particicipant-level data, and a variable information data frame that contains all variable information. Deatail Notes and scripts used to generate data is included in the repository: [Data Preparation Notes](/notes/1_dataprep.md). 
+1. The application requires both study-level metadata, and particicipant-level data, and a variable information data frame that contains all variable information. Detail Notes and scripts used to generate data is included in the repository: [Data Preparation Notes](/notes/1_dataprep.md). 
 2. DataRepExp was built in Shiny modules. Modularity makes the app easy to test, maintain, and deploy. The features can be easily further expanded with loose coupling module design: [Application Development Notes](/notes/2_app_dev_notes.md).
 3. I have created a copy of this application that was modified to add two more variables just as a demonstration to set up your own variables: [How to add new variables](/notes/3_add_new_var.md).
 4. Considering some repositories may hold highly sensitive data, or individual-level data may not be not available, a metadata-only version DataRepExp has also been developed, and relevant code is included [here](/archive/meta_demo).
