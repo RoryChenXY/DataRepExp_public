@@ -6,7 +6,7 @@ The application displays standardised metadata across multiple studies including
 
 This demo application was created using simulated health-related data for demonstration purposes. It can be modified and utilized by other data repositories by adopting the discipline-specific metadata schema and common variables.
 
-To simplify the deployment process of the shiny application, the source code was converted to an R package under the {golem} framework.
+To simplify the deployment process of the shiny application, the source code was converted to an R package under the [{golem}](https://github.com/ThinkR-open/golem) framework.
 
 -   Repository: <https://github.com/RoryChenXY/DataRepExp_public/>
 -   Package Source Code: [{datarepexp}](/datarepexp/)
