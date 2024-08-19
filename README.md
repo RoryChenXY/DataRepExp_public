@@ -72,6 +72,7 @@ This work is supported by grants from the National Institute on Aging/ National 
 ## Availability and Community Guidelines
 The application and associated documentation are open source (MIT License), but we ask that you kindly acknowledge our work. 
 Users and contributors are welcome to contribute, request features, and report bugs through the GitHub repository.
+[Contributing Guidelines](/datarepexp/CONTRIBUTING.md) 
 
 
 
