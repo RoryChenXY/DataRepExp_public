@@ -46,6 +46,13 @@ For this application, I created 3 data frames. To populate this application for 
 1. Set the factor levels properly
 2. For both metadata and participants level data, create two copies - one with factor, another remains numerical for different visualisation purposes.
 3. Create a data frame with all variable information
+4. With the following syntax, all required data will be saved in the proper folder for the package use.
+   
+   ```
+   usethis::use_data(VAR_info, overwrite = TRUE) # Variable Information
+   usethis::use_data(studymeta, overwrite = TRUE) # study meta data
+   usethis::use_data(ppt_all_fc, overwrite = TRUE) # participant-level data, converted to factors
+   ```
 
 ## Resources
 The `simstudy` package was used to generate the simulated data.
