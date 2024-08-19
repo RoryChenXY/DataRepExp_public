@@ -3,6 +3,7 @@ title: 'DataRepExp: a R shiny Application that makes Data FAIR for Data Reposito
 tags:
   - R
   - Shiny
+  - golem
   - dashboard
   - repository
   - visualisation
@@ -40,7 +41,7 @@ affiliations:
    index: 4
  - name: Population Data Science, Swansea University, Swansea, United Kingdom
    index: 5
-date: 27 Feburary 2024
+date: 19 August 2024
 bibliography: paper.bib
 
 ---
@@ -91,7 +92,7 @@ R programming skill is required for reproducibility, detailed documentation and 
 
 DataRepExp was written using R [@R-Base] and JavaScript using the following packages:
 
--   Shiny: shiny [@R-shiny], shinydashboard [@R-shinydashboard], shinyWidgets [@R-shinyWidgets], shinyjs [@R-shinyjs].
+-   Shiny: shiny [@R-shiny], shinydashboard [@R-shinydashboard], shinyWidgets [@R-shinyWidgets], shinyjs [@R-shinyjs], golem [@R-golem].
 -   Data manipulation: dplyr [@R-dplyr], tidyr [@R-tidyr], tidyverse [@R-tidyverse], forcats [@R-forcats], useful [@R-useful], magrittr [@R-magrittr], purrr [@R-purrr].
 -   Data Report and Visualisation: ggplot2 [@R-ggplot2], plotly [@R-plotly], scales [@R-scales], DT [@R-DT], htmltools [@R-htmltools], fontawesome [@R-fontawesome].
 
@@ -104,20 +105,20 @@ The Data Repository Explorer, DataRepExp, is hosted through easy-to-use [shinyap
 
 The application layout features a side menu, through which the users can navigate through tabs, and the main view which displays the content of the selected tab.
 
-![Screenshot of DataRepExp](PA.png)
+![Screenshot of DataRepExp](pa.png)
 
 -   First tab -- Overview: includes statement and navigation instructions.
--   Second tab -- Summary Tables: three metadata tables for high-level comparison
+-   Second tab -- Metadata: two metadata tables for high-level comparison
 -   Third tab -- Filters and Filter Reports: users can adjust and apply filters to identify participants and studies that match selected criteria. They can download the Filter Report with the list of studies that matches the filters selected.
 -   Fourth tab -- Visualisation: plots are organised by different domains, generated using the filtered dataset.
--   Fifth tab -- Preliminary Analysis: Preliminary Analysis: preliminary analysis can be done with user-selected variables.
+-   Fifth tab -- Preliminary Analysis: users can select variables of interest and run the preliminary analysis using the filtered dataset.
 
 Application features include: 
 
 - Simulation: For demonstration purposes, we generated simulated data.
 Scripts and reference documents used to generate the data can be found in the GitHub repository.
-- Modularisation: DataRepExp was built in Shiny modules. Modularity makes the app easy to test, maintain, and deploy.
-The features can be easily further expanded with loose coupling module design.
+- Modularisation: DataRepExp was built in Shiny modules under the golem structure. Modularity makes the app easy to test, maintain, and deploy.
+The features can be easily further expanded with the loose coupling module design.
 - Interactive: DataRepExp provides an interactive interface that allows users to engage with the data and output.
 Elevated user experience with integrative charts and figures, which include functions such as sort, filter, zoom, select, adjust axis, hover for information, reset, etc.
 
