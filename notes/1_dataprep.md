@@ -1,6 +1,6 @@
 # Data Preparation
 For demonstration purposes, we generate simulated data.
-Code and reference documents used to generate the data can be found in [here](/datarepexp/dataraw)
+Code and reference documents used to generate the data can be found in [here](/datarepexp/data-raw)
 
 For this application, I created 3 data frames. To populate this application for your purpose, similar data frames are required.
 
