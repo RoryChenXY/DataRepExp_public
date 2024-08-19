@@ -31,25 +31,25 @@ datarepexp::repexp_app()
 ## How to navigate the application
 The side menu allows you to switch between tabs, and the menu icon on the top allows you to collapse and expand the menu.
 
-![Side Menu](/www/sidemenu.png)
+![Side Menu](/img/sidemenu.png)
 
 The Summary Tables Tab includes metadata of studies, listed in three tables, and provides a high-level comparison. All tables allow you to search, sort, and filter, and the "CLEAR" button resets the table to its original status.
 
-![Summary Tables Tab](/www/Summary.png)
+![Summary Tables Tab](/img/Summary.png)
 
 The Filters Tab includes filters at both the study level and participant level, so that you can adjust and apply filters to identify studies and participants that match the selected criteria. 
 The "Clear" buttons reset the filters. The Filters Tab also allows you to review and download the filters you have applied, and the study/studies you have identified in the Filters Report page.
 
-![Filters Tab1](/www/Filter_study.png)
-![Filters Tab2](/www/FilterReport.png)
+![Filters Tab1](/img/Filter_study.png)
+![Filters Tab2](/img/FilterReport.png)
 
 The Visualisation Tab generates results based on the filters you have applied. All plots are organised into sub-tabs by domain.
 
-![Visualisation Tab](/www/VisTab.png)
+![Visualisation Tab](/img/VisTab.png)
 
 The Preliminary Analysis Tab generates results based on the filters you have applied. The variable options are separated by categorical and quantitative variables.
 
-![Preliminary Analysi Tab](/www/PA.png)
+![Preliminary Analysi Tab](/img/PA.png)
 
 All plots can be downloaded. They have interactive features such as zoom, select, adjust axis, hover for information, reset, etc.
 
