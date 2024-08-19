@@ -55,7 +55,7 @@ All plots can be downloaded. They have interactive features such as zoom, select
 
 ## Deployment Notes
 
-To make modifications to the applications for your purposes, R and Shiny programming skills are required, as well as an understanding of Shiny modules.
+To make modifications to the applications for your purposes, R and Shiny programming skills are required, as well as an understanding of Shiny modules and golem.
 
 1. The application uses both study-level metadata, and particicipant-level data, and a data dictionary. Detail Notes and scripts used to generate data are included in the repository: [Data Preparation Notes](/notes/1_dataprep.md). 
 2. DataRepExp was built in Shiny modules. Modularity makes the app easy to test, maintain, and deploy. The features can be easily further expanded with loose coupling module design.
