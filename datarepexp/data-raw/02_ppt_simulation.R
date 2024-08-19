@@ -1,6 +1,7 @@
 #LIBRARY########################################################################
 library(dplyr) #data manipulation
-library(tidyverse) #data manipulation
+library(magrittr) #data manipulation
+
 library(simstudy) #Generate simulated data
 library(data.table) #Data manipulation
 
