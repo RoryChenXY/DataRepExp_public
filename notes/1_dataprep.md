@@ -1,18 +1,17 @@
 # Data Preparation
 For demonstration purposes, we generate simulated data.
-Code and reference documents used to generate the data can be found in [here](/dataprep/)
+Code and reference documents used to generate the data can be found in [here](/datarepexp/dataraw)
 
 ## Data frame
 For this application, I created 5 data frames. To populate this application for your purpose, similar data frames are required.
 
 1.	'VAR_info'
 
-  	This is a data frame that contains all variable information used in this application. Including variable name, variable label, category (metadata or participant-level data),  variable types,  value range, the minimum and maximum value for numeric variables.
-2.	‘ppt_all’ and ‘ppt_all_fc’
+  	This is a data frame that contains all variable information used in this application. Similar to a data dictionary, this data frame includes variable name, variable label, category (metadata or participant-level data),  variable types,  value range, the minimum and maximum value for numeric variables.
+  	
+2.	‘ppt_all_fc’
 
-    ‘ppt_all’ is a file containing all participant-level data across studies, where all categorical variables were converted to numeric variables. For instance, ‘No, Yes’ was coded as ‘0, 1’.
-
-    ‘ppt_all_fc’ is a duplicate of ‘ppt_all’, but all categorical variables were converted to factor variables.
+    ‘ppt_all_fc’ is a file containing all participant-level data across studies, where all categorical variables were were converted to factor variables.
 
   	The example syntax I used is:
   	```
@@ -24,11 +23,9 @@ For this application, I created 5 data frames. To populate this application for 
     … %>% mutate(across(c(ETHNICBACK, SEX, EDUHIGHS, MARISTAT, DECEASED), ~ fct_na_value_to_level(.x, level = 'Missing')))
     ```
 
-3.	‘simmeta’ and ‘studymeta’
+4.	‘studymeta’
    
-    Similarly, ‘simmeta’ is a data frame that contains all study-level data, where all categorical variables were converted to numeric variables.
-  	
-    And ‘studymeta’ is a duplicate of ‘simmeta’ with all categorical variables converted to factor variables.
+    Similarly, ‘studymeta’ is a data frame that contains all study-level data, where all categorical variables converted to factor variables.
 
 ## Data Simulation Notes
 
