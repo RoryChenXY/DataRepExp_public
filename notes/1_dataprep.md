@@ -2,8 +2,7 @@
 For demonstration purposes, we generate simulated data.
 Code and reference documents used to generate the data can be found in [here](/datarepexp/dataraw)
 
-## Data frame
-For this application, I created 5 data frames. To populate this application for your purpose, similar data frames are required.
+For this application, I created 3 data frames. To populate this application for your purpose, similar data frames are required.
 
 1.	'VAR_info'
 
@@ -23,7 +22,7 @@ For this application, I created 5 data frames. To populate this application for 
     … %>% mutate(across(c(ETHNICBACK, SEX, EDUHIGHS, MARISTAT, DECEASED), ~ fct_na_value_to_level(.x, level = 'Missing')))
     ```
 
-4.	‘studymeta’
+3.	‘studymeta’
    
     Similarly, ‘studymeta’ is a data frame that contains all study-level data, where all categorical variables converted to factor variables.
 
