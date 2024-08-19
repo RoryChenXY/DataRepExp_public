@@ -110,10 +110,9 @@ VAR_info <- rbind(metaVAR_info, pVAR_Cate, pVAR_Num, VARMISS) %>%
 
 
 
-save(simmeta, studymeta, ppt_all, ppt_all_fc, VAR_info, file = "simdata.RData")
-load("data-raw/temp/simdata.RData")
+#save(simmeta, studymeta, ppt_all, ppt_all_fc, VAR_info, file = "simdata.RData")
+#load("data-raw/temp/simdata.RData")
 
-
-usethis::use_data(studymeta, overwrite = TRUE) # study meta data
 usethis::use_data(VAR_info, overwrite = TRUE) # Variable Information
+usethis::use_data(studymeta, overwrite = TRUE) # study meta data
 usethis::use_data(ppt_all_fc, overwrite = TRUE) # participant-level data, converted to factors
