@@ -18,3 +18,4 @@ To modify and use the non-simulated data:
 1. Filter builder: instead of listing all filters, users can select and add any filter of interests
 2. Plots options: allow users to select different plot types
 3. Analysis: introduce some basic statistics models in the Preliminary Analysis Tab
+4. Documentation: how can a user modify the app and use their data
