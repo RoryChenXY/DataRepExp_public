@@ -33,7 +33,7 @@ The side menu allows you to switch between tabs, and the menu icon on the top al
 
 ![Side Menu](/img/sidemenu.png)
 
-The Metadata Tab includes metadata of studies, listed in three tables, and provides a high-level comparison. All tables allow you to search, sort, and filter, and the "CLEAR" button resets the table to its original status.
+The Metadata Tab includes metadata of studies, listed in two tables, and provides a high-level comparison. All tables allow you to search, sort, and filter, and the "CLEAR" button resets the table to its original status.
 
 ![Metadata Tab](/img/metadata.png)
 
@@ -55,14 +55,14 @@ All plots can be downloaded. They have interactive features such as zoom, select
 
 ## Deployment Notes
 
-To make modifications to the applications for your purposes, R and Shiny programming skills are required, as well as an understanding of shiny modules.
+To make modifications to the applications for your purposes, R and Shiny programming skills are required, as well as an understanding of Shiny modules.
 
 1. The application uses both study-level metadata, and particicipant-level data, and a data dictionary. Detail Notes and scripts used to generate data are included in the repository: [Data Preparation Notes](/notes/1_dataprep.md). 
 2. DataRepExp was built in Shiny modules. Modularity makes the app easy to test, maintain, and deploy. The features can be easily further expanded with loose coupling module design: [Application Development Notes](/notes/2_app_dev_notes.md).
 3. The Data Repository Explorer, DataRepExp, is hosted through easy-to-use [shinyapps.io](https://www.shinyapps.io/),  while the DPAU version is hosted on AWS environment using Shiny Server for high availability, scalability, security, and compliance.  The detailed deployment instructions can be found [here](https://shiny.posit.co/r/deploy.html)
 4. I have created a copy of this application that was modified to add two more variables just as a demonstration to set up your own variables: [How to add new variables](/notes/3_add_new_var.md).
-5. Considering some repositories may hold highly sensitive data, or individual-level data may not be not available, a metadata-only version DataRepExp has also been developed, and relevant code is included [here](/archive/meta_demo).
-6. 
+5. Considering some repositories may hold highly sensitive data, or individual-level data may not be not available, a metadata-only version may be more appropriate.
+   
 
 ## Acknowledgements
 This application was inspired by the visualization tool developed by Dementias Platform UK([DPUK](https://www.dementiasplatform.uk/)) using PowerBI, then developed for the Dementias Platform Australia ([DPAU](https://www.dementiasplatform.com.au/)) in R-Shiny. We acknowledge the generous sharing of best practices and knowledge from DPUK.
