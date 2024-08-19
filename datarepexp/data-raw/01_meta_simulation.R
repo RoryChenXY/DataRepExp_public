@@ -1,6 +1,6 @@
 #LIBRARY########################################################################
 library(dplyr) #data manipulation
-library(tidyverse) #data manipulation
+library(magrittr) #data manipulation
 
 library(stringi) #String manipulation
 library(stringr) #String manipulation
@@ -21,19 +21,23 @@ Ava_dist <- setDT(read.csv("data-raw/source/AvailabilityDist.csv", header = TRUE
 ###DO NOT RERUN START###########################################################
 #stri_rand_lipsum CANNOT guarantee the same results even with set seed
 #Save the result and DO NOT re-run this section
-# lit <- stri_rand_lipsum(2) %>%  #Generates (pseudo)random lorem ipsum text
-#   stri_split_regex( "\\p{Punct}", omit_empty=TRUE) #Separate string by punctuation
-# studyname <- paste(lit[[1]], lit[[2]]) %>%
-#   trimws("l") %>% #remove leading spaces
-#   str_to_title() #convert first letter to uppercase
-# studyname <- studyname[str_detect(studyname, " ")] #Remove study name with only one word
+# studyname <- stringi::stri_rand_lipsum(2) %>%  # Generates (pseudo)random lorem ipsum text
+#  stringi::stri_split_regex( "\\p{Punct}", omit_empty = TRUE) %>% # Separate string by punctuation
+#  base::unlist() %>% # unlist
+#  base::trimws("l") %>% # remove leading spaces
+#  str_to_title() %>% # convert first letter to uppercase
+#  stringr::str_trunc(width = 30, side ='right', ellipsis = '') # Truncated for easiler presentation
+# studyname <- studyname[str_detect(studyname, " ")] # Remove study name with only one word
+# nstudy <- length(studyname)
+
 # ##Generate Study Acronyms
-# studyacr <- abbreviate(studyname, minlength = 3, use.classes = TRUE,
-#                        dot = FALSE, strict = FALSE,
-#                        method = c("left.kept", "both.sides"), named = TRUE)
-# metatemp <- data.frame(STUDY = 1:30)
-# metatemp$STUDY <- studyacr
-# metatemp$FULLNAME <- studyname
+# studyacr <- base::abbreviate(studyname, minlength = 3, use.classes = TRUE,
+#                             dot = FALSE, strict = FALSE,
+#                             method = c("left.kept", "both.sides"), named = TRUE)
+
+# metatemp <- data.frame(STUDY = studyacr, FULLNAME = studyname)
+# row.names(metatemp) <- NULL
+#
 # save(metatemp, file = "source/metatemp.RData")
 ###DO NOT RERUN END#############################################################
 
