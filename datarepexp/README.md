@@ -34,6 +34,11 @@ using simulated health-related data for demonstration purposes.
 It can be modified and utilized by other data repositories by adopting
 the discipline-specific metadata schema and common variables.
 
+## Demo
+
+The demo app is deployed on shinyapps.io:
+<https://rorychenxy.shinyapps.io/repexp/>
+
 ## Installation
 
 You can install the development version of datarepexp from
@@ -44,13 +49,7 @@ You can install the development version of datarepexp from
 devtools::install_github("RoryChenXY/DataRepExp_public", subdir="datarepexp")
 ```
 
-## Demo
-
-The demo app is deployed on shinyapps.io:
-<https://rorychenxy.shinyapps.io/repexp/>
-
 To run the dev version of this app locally:
-
 ``` r
 library(datarepexp)
 datarepexp::repexp_app()
