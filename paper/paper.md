@@ -105,7 +105,7 @@ The Data Repository Explorer, DataRepExp, is hosted through easy-to-use [shinyap
 
 The application layout features a side menu, through which the users can navigate through tabs, and the main view which displays the content of the selected tab.
 
-![Screenshot of DataRepExp](pa.png)
+![Screenshot of DataRepExp](PA.png)
 
 -   First tab -- Overview: includes statement and navigation instructions.
 -   Second tab -- Metadata: two metadata tables for high-level comparison
