@@ -98,7 +98,7 @@ DataRepExp was written using R [@R-Base] and JavaScript using the following pack
 
 -   Shiny: shiny [@R-shiny], shinydashboard [@R-shinydashboard], shinyWidgets [@R-shinyWidgets], shinyjs [@R-shinyjs], golem [@R-golem].
 -   Data manipulation: dplyr [@R-dplyr], tidyr [@R-tidyr], tidyverse [@R-tidyverse], forcats [@R-forcats], useful [@R-useful], magrittr [@R-magrittr], purrr [@R-purrr].
--   Data Report and Visualisation: ggplot2 [@R-ggplot2], plotly [@R-plotly], scales [@R-scales], DT [@R-DT], htmltools [@R-htmltools], fontawesome [@R-fontawesome].
+-   Data Report and Visualisation: ggplot2 [@R-ggplot2], plotly [@plotly2020], scales [@R-scales], DT [@R-DT], htmltools [@R-htmltools], fontawesome [@R-fontawesome].
 
 ## Deployment
 
