@@ -12,7 +12,7 @@ To simplify the deployment process of the shiny application, the source code was
 -   Package Source Code: [{datarepexp}](/datarepexp/)
 -   Web Application: <https://rorychenxy.shinyapps.io/DataRepExp/>
 -   Contact: [xinyue.chen1\@unsw.edu.au](mailto:%20xinyue.chen1@unsw.edu.au) / [rory.chen.xy\@gmail.com](mailto:%20rory.chen.xy@gmail.com)
--   Paper: [paper.md](/paper/paper.md)
+-   Paper: <https://doi.org/10.21105/joss.06693>
 
 ## Deployment
 
